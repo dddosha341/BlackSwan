@@ -1,0 +1,45 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.hat {
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    margin: 0;
+    width: 100%; 
+    box-sizing: border-box; 
+    position: sticky; 
+    top: 0; 
+    z-index: 10; 
+}
+
+.hat-text {
+    color: white;
+    font-size: 125px;
+    font-weight: 167;
+}
+
+.hat-logo {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hat-logo-white-space {
+    height: 75px;
+    width: 75px;
+    background-color: white;
+    border-radius: 100px;
+    position: absolute;
+    z-index: 1;
+}
+
+.hat-logo-photo {
+    height: 125px;
+    width: 125px;
+    position: relative;
+    z-index: 2;
+}
