@@ -43,3 +43,32 @@ html, body {
     position: relative;
     z-index: 2;
 }
+
+.menu-buttons {
+    justify-content: center;
+    background-color: gold;
+    background: linear-gradient(to right, #FFD700, #FFA500);
+    display: flex;
+    gap: 7vw;
+}
+
+.menu-buttons-button {
+    margin-top: 7px;
+    margin-bottom: 7px;
+
+    height: 130%;
+    
+    button {
+        width: 110%;
+        height: 120%;
+        border: 0px;
+        border-radius: 10px;
+        font-size: 43px;
+        background-color: lightgray;
+    }
+}
+
+footer {
+    background-color: black;
+    color: white;
+}
