@@ -3,16 +3,21 @@ html, body {
     padding: 0;
 }
 
+.header-container {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    box-sizing: border-box;
+}
+
 .hat {
     display: flex;
     justify-content: center;
     background-color: black;
     margin: 0;
-    width: 100%; 
-    box-sizing: border-box; 
-    position: sticky; 
-    top: 0; 
-    z-index: 10; 
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .hat-text {
@@ -45,27 +50,115 @@ html, body {
 }
 
 .menu-buttons {
-    justify-content: center;
-    background-color: gold;
-    background: linear-gradient(to right, #FFD700, #FFA500);
     display: flex;
+    justify-content: center;
+    background: linear-gradient(to right, #FFD700, #FFA500);
     gap: 7vw;
+    padding: 7px 0;
+    box-sizing: border-box;
 }
 
 .menu-buttons-button {
-    margin-top: 7px;
-    margin-bottom: 7px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
 
-    height: 130%;
-    
-    button {
-        width: 110%;
-        height: 120%;
-        border: 0px;
-        border-radius: 10px;
-        font-size: 43px;
-        background-color: lightgray;
-    }
+.menu-buttons-button button {
+    width: 110%;
+    height: 120%;
+    border: 0;
+    border-radius: 10px;
+    font-size: 43px;
+    background-color: lightgray;
+    color: #333; /* Added for text color */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s; /* Added for smooth transitions */
+}
+
+.menu-buttons-button button.active {
+    background-color: black;
+    color: white;
+}
+
+.menu-buttons-button button:not(.active):hover {
+    background-color: #d3d3d3;
+}
+
+.content {
+    padding: 40px;
+}
+
+.content-block {
+    background: linear-gradient(to right, bisque, blanchedalmond);
+    border-radius: 70px;
+    margin-bottom: 40px;
+}
+
+.content-block-main {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.content-block-main-photo {
+    flex: 0 0 auto;
+    max-width: 600px;
+}
+
+.content-block-main-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.content-block-main-info {
+    flex: 1;
+    padding: 10px;
+}
+
+.content-block-main-info-title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.content-block-main-info-desc {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.content-block-main-info-desc p {
+    margin: 10px 0;
+}
+
+.content-block-hit {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.content-block-hit-title {
+    font-size: 30px;
+}
+
+.content-block-hit-menu-button {
+    display: flex;
+    justify-content: center;
+}
+
+.exclusive-menu-button {
+    text-align: center;
+    border: 0;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 30px;
+    background: linear-gradient(to right, #FFD700, #FFA500);
+    cursor: pointer;
 }
 
 .footer-content {
@@ -73,10 +166,17 @@ html, body {
     color: white;
     font-size: 35px;
     justify-content: center;
-    text-align: center; 
+    text-align: center;
+    padding: 20px;
 }
 
 .media-blocks {
     display: flex;
     justify-content: center;
+    gap: 10px;
+}
+
+.media-block img {
+    width: 40px;
+    height: 40px;
 }
