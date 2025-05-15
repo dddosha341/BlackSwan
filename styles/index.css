@@ -68,7 +68,15 @@ html, body {
     }
 }
 
-footer {
+.footer-content {
     background-color: black;
     color: white;
+    font-size: 35px;
+    justify-content: center;
+    text-align: center; 
+}
+
+.media-blocks {
+    display: flex;
+    justify-content: center;
 }
