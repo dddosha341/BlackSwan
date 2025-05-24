@@ -1,0 +1,144 @@
+/* Стили для events.html */
+.events-section {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.events-section h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.events-section h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.events-section p {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.filter-section {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.filter-section label {
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+.filter-section select {
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.events-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.event-card {
+    background: #fffdf5; /* Светлый фон, как на фото */
+    border-radius: 15px; /* Закругленные углы */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Тень */
+    overflow: hidden;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.event-card.upcoming {
+    border-left: 5px solid #FFD700;
+}
+
+.event-card.past {
+    border-left: 5px solid #ccc;
+    background-color: #f5f5f5; /* Серый фон для прошедших */
+}
+
+.event-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.event-content {
+    display: flex;
+    padding: 20px; /* Увеличенные отступы */
+    gap: 20px;
+}
+
+.event-date {
+    flex: 0 0 150px;
+    font-size: 16px;
+    color: #666;
+    border-right: 2px solid #FFD700;
+    padding-right: 15px;
+    line-height: 1.5; /* Для лучшего выравнивания текста */
+}
+
+.event-details {
+    flex: 1;
+}
+
+.event-details h4 {
+    font-size: 22px; /* Чуть больше для заголовка */
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: bold;
+}
+
+.event-details p {
+    font-size: 16px;
+    margin: 5px 0;
+    line-height: 1.6; /* Улучшенная читаемость */
+    color: #333;
+}
+
+.event-details p strong {
+    color: #FFD700;
+    font-weight: bold;
+}
+
+.event-price, .event-note {
+    font-size: 14px;
+    color: #888;
+    margin-top: 5px;
+    font-style: italic; /* Курсив для заметок, как на фото */
+}
+
+.event-action {
+    display: block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(to right, #FFD700, #FFC107); /* Градиент желтого */
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    text-align: center;
+}
+
+.event-action:hover {
+    background: linear-gradient(to right, #FFC107, #FFD700); /* Обратный градиент при наведении */
+}
+
+/* Анимация появления */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
