@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 displayEvents();
             } else {
                 console.log('Fetching events from events.json');
-                fetch('events.json')
+                fetch('data/events.json')
                     .then(response => {
                         if (!response.ok) {
                             throw new Error(`HTTP error! Status: ${response.status}`);
