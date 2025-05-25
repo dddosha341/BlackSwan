@@ -36,6 +36,38 @@
         </div>
     </div>
     <div class="content">
+        <div class="content-block">
+            <div class="content-block-main">
+                <h2 class="text-xl font-bold mb-4">Оставить отзыв</h2>
+                <form id="review-form" class="space-y-4">
+                    <div>
+                        <label for="review-name" class="block">Имя</label>
+                        <input id="review-name" type="text" class="bs-input" required>
+                    </div>
+                    <div>
+                        <label for="review-text" class="block">Текст отзыва</label>
+                        <textarea id="review-text" class="bs-input" rows="3" required></textarea>
+                    </div>
+                    <div>
+                        <label class="block">Оценка</label>
+                        <div class="flex space-x-4 mt-2">
+                            <label><input type="radio" name="rating" value="1" required> 1</label>
+                            <label><input type="radio" name="rating" value="2"> 2</label>
+                            <label><input type="radio" name="rating" value="3"> 3</label>
+                            <label><input type="radio" name="rating" value="4"> 4</label>
+                            <label><input type="radio" name="rating" value="5"> 5</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="bs-button">Отправить</button>
+                </form>
+                <h3 class="text-lg font-bold mt-6">Все отзывы</h3>
+                <div class="mt-2">
+                    <button onclick="sortReviews('date')" class="bs-button mr-2">Сортировать по дате</button>
+                    <button onclick="sortReviews('rating')" class="bs-button">Сортировать по оценке</button>
+                </div>
+                <div id="reviews-list" class="mt-4"></div>
+            </div>
+        </div>
     </div>
     <footer>
         <div class="footer-content">

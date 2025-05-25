@@ -2,53 +2,109 @@
 <html>
 <head>
     <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/menu.css">
 </head>
 <body>
-    <div class="header-container">
-        <div class="hat">
-            <div class="hat-text">
-                <div class="hat-text-left">BLACK</div>
-            </div>
-            <div class="hat-logo">
-                <img class="hat-logo-photo" src="images/logo.png">
-                <div class="hat-logo-white-space"></div>
-            </div>
-            <div class="hat-text">
-                <div class="hat-text-right">SWAN</div>
-            </div>
+<div class="header-container">
+    <div class="hat">
+        <div class="hat-text">
+            <div class="hat-text-left">BLACK</div>
         </div>
-        <div class="menu-buttons">
-            <div class="menu-buttons-button">
-                <button type="button">О нас</button>
+        <div class="hat-logo">
+            <img class="hat-logo-photo" src="images/logo.png">
+            <div class="hat-logo-white-space"></div>
+        </div>
+        <div class="hat-text">
+            <div class="hat-text-right">SWAN</div>
+        </div>
+    </div>
+    <div class="menu-buttons">
+        <div class="menu-buttons-button">
+            <button type="button">О нас</button>
+        </div>
+        <div class="menu-buttons-button">
+            <button type="button">Меню</button>
+        </div>
+        <div class="menu-buttons-button">
+            <button type="button">Бронирование</button>
+        </div>
+        <div class="menu-buttons-button">
+            <button type="button">События</button>
+        </div>
+        <div class="menu-buttons-button">
+            <button type="button">Отзывы</button>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="content-block">
+        <div class="content-block-main intro-section">
+            <p>
+                Погрузитесь в атмосферу уюта, элегантности и изысканной кухни.<br>
+                Мы с радостью подготовим для вас идеальный вечер — просто выберите дату и время, а всё остальное доверьте нам.
+            </p>
+            <div class="photo-gallery">
+                <img src="images/table.jpg" alt="Фото столика на двоих">
+                <img src="images/event.jpg" alt="Фото крупного мероприятия">
             </div>
-            <div class="menu-buttons-button">
-                <button type="button">Меню</button>
-            </div>
-            <div class="menu-buttons-button">
-                <button type="button">Бронирование</button>
-            </div>
-            <div class="menu-buttons-button">
-                <button type="button">События</button>
-            </div>
-            <div class="menu-buttons-button">
-                <button type="button">Отзывы</button>
+            <div class="booking-options">
+                <a href="tel:+79000000000"><button class="bs-button">Забронировать столик по номеру 8 900 000 00 00</button></a>
+                <a>Оставьте заявку на сайте</a>
             </div>
         </div>
     </div>
-    <div class="content">
-    </div>
-    <footer>
-        <div class="footer-content">
-            <div class="phone">8-800-555-350-35</div>
-            <div class="address">г. Ярославль, ул. Собинова, д. 52</div>
-            <div class="media-text">Мы в социальных сетях:</div>
-            <div class="media-blocks">
-                <div class="media-block"><img src="images/github-logo.svg"></div>
-                <div class="media-block"><img src="images/reddit-logo.svg"></div>
-                <div class="media-block"><img src="images/vk-logo.svg"></div>
-            </div>
+    <div class="content-block" id="booking-form-section">
+        <div class="content-block-main">
+            <h2 class="text-xl font-bold mb-4">Забронировать столик</h2>
+            <form id="booking-form" class="space-y-4">
+                <div>
+                    <label for="client-name" class="block">Ваше имя:</label>
+                    <input id="client-name" type="text" class="bs-input" required>
+                </div>
+                <div>
+                    <label for="booking-date" class="block">Дата:</label>
+                    <input id="booking-date" type="date" class="bs-input" required>
+                </div>
+                <div>
+                    <label for="booking-time" class="block">Время:</label>
+                    <select id="booking-time" class="bs-input" required>
+                        <option value="">Выберите время</option>
+                        <option value="12:00">12:00</option>
+                        <option value="14:00">14:00</option>
+                        <option value="16:00">16:00</option>
+                        <option value="18:00">18:00</option>
+                        <option value="20:00">20:00</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block">Количество человек:</label>
+                    <div class="flex space-x-4 mt-2">
+                        <label><input type="radio" name="people" value="1" required> 1</label>
+                        <label><input type="radio" name="people" value="2"> 2</label>
+                        <label><input type="radio" name="people" value="3-4"> 3-4</label>
+                        <label><input type="radio" name="people" value="5+"> 5+</label>
+                    </div>
+                </div>
+                <div>
+                    <label for="special-requests" class="block">Особые пожелания:</label>
+                    <textarea id="special-requests" class="bs-input" rows="3" placeholder="ТЕКСТ"></textarea>
+                </div>
+                <button type="submit" class="bs-button">Забронировать</button>
+            </form>
         </div>
-    </footer>
-    <script src="js/script.js"></script>
+    </div>
+</div>
+<script src="js/script.js"></script>
+<script src="js/menu.js"></script>
+<script src="js/booking.js"></script>
+</body>
+</html>
+
+
+<div class="bs-container">
+
+</div>
+
+<div id="notification" class="bs-notification"></div>
 </body>
 </html>
