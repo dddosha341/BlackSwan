@@ -1,42 +1,30 @@
 document.addEventListener('DOMContentLoaded', () => {
-    if (window.location.pathname.split('/').pop() === 'events.html') {
+    if (window.location.pathname.includes('events')) {
         let events = [];
         const today = new Date('2025-05-22T12:21:00'); // Текущее время (12:21 PM PDT)
 
 
         // Загрузка данных из events.json или localStorage
         function loadEvents() {
-            if (localStorage.getItem('events')) {
-                console.log('Loading events from localStorage');
-                events = JSON.parse(localStorage.getItem('events'));
-                populateEventTypes();
-                displayEvents();
-            } else {
-                console.log('Fetching events from events.json');
-                fetch('data/events.json')
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error(`HTTP error! Status: ${response.status}`);
-                        }
-                        return response.json();
-                    })
-                    .then(data => {
-                        console.log('Events loaded from JSON:', data);
-                        events = data;
-                        localStorage.setItem('events', JSON.stringify(events));
-                        populateEventTypes();
-                        displayEvents();
-                    })
-                    .catch(error => {
-                        console.error('Error loading events.json:', error);
-                        console.log('Using fallback events data');
-                        events = fallbackEvents; // Используем встроенные данные
-                        localStorage.setItem('events', JSON.stringify(events));
-                        populateEventTypes();
-                        displayEvents();
-                    });
-            }
-        }
+            console.log('Fetching events from API...');
+            fetch('/api/events')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Events loaded from API:', data);
+                    events = data;
+                    populateEventTypes();
+                    displayEvents();
+                })
+                .catch(error => {
+                    console.error('Error loading events from API:', error);
+                    eventsList.innerHTML = '<p>Не удалось загрузить события. Повторите позже.</p>';
+                });
+        }             
 
         const eventsList = document.getElementById('events-list');
         const eventTypeFilter = document.getElementById('event-type');

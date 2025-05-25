@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>1337 видео</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #111;
+      color: #0f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .plate {
+      margin: 30px auto;
+      padding: 20px;
+      border: 3px solid #0f0;
+      border-radius: 20px;
+      width: fit-content;
+      text-align: center;
+      background: #222;
+      box-shadow: 0 0 20px #0f0;
+      transition: transform 0.3s;
+    }
+
+    .plate:hover {
+      transform: scale(1.05);
+    }
+
+    .author {
+      font-size: 2em;
+      margin-top: 15px;
+      color: #0ff;
+      text-shadow: 0 0 10px #0ff;
+    }
+
+    video {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #0f0;
+    }
+
+    .easter-egg {
+      margin-top: 40px;
+      font-size: 1.5em;
+      color: #ff0;
+      opacity: 0;
+      cursor: pointer;
+      transition: opacity 1s;
+      text-align: center;
+    }
+
+    .easter-egg.revealed {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="plate">
+    <video width="360" height="640" controls autoplay muted loop>
+        <source src="../images/1337133713371337.mp4" type="video/mp4">
+        Ваш браузер не поддерживает воспроизведение видео.
+      </video>
+    <div class="author">tra1vor</div>
+  </div>
+
+  <div class="plate">
+    <video width="360" height="640" controls autoplay muted loop>
+      <source src="../images/13371337133713371337.mp4" type="video/mp4">
+      Ваш браузер не поддерживает воспроизведение видео.
+    </video>
+    <div class="author">dddosha341</div>
+  </div>
+
+  <div class="plate">
+    <video width="360" height="640" controls autoplay muted loop>
+        <source src="../images/133713371337133713371337.mp4" type="video/mp4">
+        Ваш браузер не поддерживает воспроизведение видео.
+      </video>
+    <div class="author">bebra-sigma</div>
+  </div>
+
+  <div class="easter-egg" id="egg">🐣 нашёл? а зря...</div>
+
+  <script>
+    const egg = document.getElementById('egg');
+    setTimeout(() => {
+      egg.classList.add('revealed');
+    }, 7000);
+
+    egg.addEventListener('click', () => {
+      alert("🤫 Ты правда кликнул? Ну ладно...\n\n🔒 Внутри тебя спрятан разработчик.\n🧠 Он устал, но не сдался.\n❤️ tra1vor, dddosha341 и bebra-sigma — бессмертны.");
+    });
+  </script>
+</body>
+</html>
