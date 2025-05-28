@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         menuContainer.innerHTML = filteredItems.length > 0
             ? filteredItems.map(item => `
                 <div class="menu-item-top">
+                    <img src="../${item.imagePath}" alt="${item.name}">
                     <div class="menu-item-info">
                         <div class="menu-item-title">${item.name}${item.vegetarian ? ' (вег.)' : ''}</div>
                         <div class="menu-item-price">
