@@ -88,7 +88,13 @@
 }
 
 .content {
-    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрирование по горизонтали */
+    max-width: 1200px; /* Ограничение максимальной ширины */
+    margin: 0 auto; /* Автоматические отступы по бокам для центрирования */
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .content-block {
