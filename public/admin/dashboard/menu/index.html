@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Меню - Админ-панель</title>
+    <style>
+        .close {
+            position: absolute;
+            right: 25px;
+            top: 25px;
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+    
+        .close:hover {
+            color: #f00;
+            transform: rotate(90deg);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            overflow: auto;
+            padding: 40px 0;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 0 auto;
+            padding: 25px;
+            border: none;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 12px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+            position: relative;
+            max-height: 85vh;
+            overflow-y: auto;
+            animation: modalopen 0.3s;
+        }
+
+        .modal-content::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .modal-content::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .modal-content::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+
+        .modal-content::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        @keyframes modalopen {
+            from {opacity: 0; transform: translateY(-50px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .back-btn {
+            margin-bottom: 20px;
+            padding: 8px 16px;
+            background-color: #ddd;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .menu-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .menu-item-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .menu-item-card h3 {
+            margin-top: 0;
+        }
+        .menu-item-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        .menu-item-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            gap: 10px;
+        }
+        .edit-btn {
+            padding: 8px 16px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .edit-btn:hover {
+            background-color: #0b7dda;
+        }
+        .delete-btn {
+            padding: 8px 16px;
+            background-color: #ff4444;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .delete-btn:hover {
+            background-color: #cc0000;
+        }
+        .add-menu-item-btn {
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .add-menu-item-btn:hover {
+            background-color: #45a049;
+        }
+        .logout-btn {
+            display: block;
+            margin: 30px auto;
+            padding: 10px 20px;
+            background-color: #ff4444;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .logout-btn:hover {
+            background-color: #cc0000;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+        }
+        .checkbox-group input {
+            width: auto;
+            margin-right: 10px;
+        }
+        .submit-btn {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="back-btn" onclick="window.location.href='/admin/dashboard'">← Назад</button>
+        <h1>Управление меню</h1>
+        
+        <button class="add-menu-item-btn" onclick="openAddModal()">Добавить пункт меню</button>
+        
+        <div class="menu-items" id="menu-items-list">
+        </div>
+        
+        <button class="logout-btn" onclick="logout()">Выйти</button>
+    </div>
+
+    <div id="menuItemModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle">Добавить пункт меню</h2>
+            <form id="menuItemForm">
+                <input type="hidden" id="itemId">
+                
+                <div class="form-group">
+                    <label for="category">Категория:</label>
+                    <input type="text" id="category" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="name">Название:</label>
+                    <input type="text" id="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="price">Цена (руб):</label>
+                    <input type="number" id="price" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="imagePath">Изображение:</label>
+                    <select id="imagePath" required>
+                        <option value="">Загрузка изображений...</option>
+                    </select>
+                    <small>Или загрузите новое (JPG, PNG, GIF, WEBM):</small>
+                    <input type="file" id="imageUpload" accept="image/*,.webm" onchange="validateImageFile(this)">
+                </div>
+                
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="isFavorite">
+                    <label for="isFavorite">Отображать в избранном</label>
+                </div>
+                
+                <button type="button" class="submit-btn" onclick="submitMenuItemForm()">Сохранить</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const token = localStorage.getItem('token');
+        let currentItemId = null;
+        let availableImages = [];
+    
+        if (!token) {
+            window.location.href = '/admin';
+        }
+        
+        function logout() {
+            localStorage.removeItem('token');
+            window.location.href = '/admin';
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchMenuItems();
+            fetchAvailableImages();
+        });
+
+        async function fetchMenuItems() {
+            try {
+                const res = await fetch('/api/admin/menu-items', {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                
+                if (!res.ok) throw new Error('Ошибка загрузки');
+                
+                const menuItems = await res.json();
+                renderMenuItems(menuItems);
+            } catch (err) {
+                console.error('Ошибка:', err);
+                alert('Не удалось загрузить меню');
+            }
+        }
+
+        function renderMenuItems(menuItems) {
+            const container = document.getElementById('menu-items-list');
+            container.innerHTML = '';
+            
+            if (!menuItems || menuItems.length === 0) {
+                container.innerHTML = '<p style="grid-column:1/-1">Нет пунктов меню</p>';
+                return;
+            }
+            
+            menuItems.forEach(item => {
+                const itemCard = document.createElement('div');
+                itemCard.className = 'menu-item-card';
+                itemCard.innerHTML = `
+                    <img src="/${item.imagePath}" alt="${item.name}" onerror="this.src='/images/default-food.jpg'">
+                    <h3>${item.name}</h3>
+                    <p><strong>Категория:</strong> ${item.category}</p>
+                    <p><strong>Цена:</strong> ${item.price} руб.</p>
+                    <p><strong>В избранном:</strong> ${item.isFavorite ? 'Да' : 'Нет'}</p>
+                    <div class="menu-item-actions">
+                        <button class="edit-btn" onclick="openEditModal('${item.id}')">Редактировать</button>
+                        <button class="delete-btn" onclick="deleteMenuItem('${item.id}')">Удалить</button>
+                    </div>
+                `;
+                container.appendChild(itemCard);
+            });
+        }
+
+        async function fetchAvailableImages() {
+            try {
+                const res = await fetch('/api/admin/images', {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                
+                if (!res.ok) throw new Error('Ошибка загрузки изображений');
+                
+                availableImages = await res.json();
+                updateImageSelect();
+            } catch (err) {
+                console.error('Ошибка:', err);
+                availableImages = [];
+            }
+        }
+
+        function updateImageSelect() {
+            const select = document.getElementById('imagePath');
+            select.innerHTML = '<option value="">Выберите изображение</option>';
+            
+            availableImages.forEach(img => {
+                const option = document.createElement('option');
+                option.value = img.path;
+                option.textContent = img.name || img.path.split('/').pop();
+                select.appendChild(option);
+            });
+        }
+
+        async function uploadImage(file) {
+            const formData = new FormData();
+            formData.append('image', file);
+            
+            try {
+                const res = await fetch('/api/admin/upload-image', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: formData
+                });
+                
+                if (!res.ok) throw new Error('Ошибка загрузки');
+                
+                const result = await res.json();
+                return result.path;
+            } catch (err) {
+                console.error('Ошибка:', err);
+                throw err;
+            }
+        }
+
+        function validateImageFile(input) {
+            const file = input.files[0];
+            if (!file) return false;
+            
+            const allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif|\.webm)$/i;
+            if (!allowedExtensions.test(file.name)) {
+                alert('Допустимы только JPG, PNG, GIF, WEBM!');
+                input.value = '';
+                return false;
+            }
+            
+            if (file.size > 5 * 1024 * 1024) {
+                alert('Файл слишком большой! Максимум 5MB');
+                input.value = '';
+                return false;
+            }
+            
+            return true;
+        }
+
+        function openAddModal() {
+            currentItemId = null;
+            document.getElementById('modalTitle').textContent = 'Добавить пункт меню';
+            document.getElementById('menuItemForm').reset();
+            document.getElementById('imageUpload').value = '';
+            document.getElementById('menuItemModal').style.display = 'block';
+        }
+
+        async function openEditModal(itemId) {
+            try {
+                const res = await fetch(`/api/admin/menu-items/${itemId}`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                
+                if (!res.ok) throw new Error('Ошибка загрузки данных');
+                
+                const item = await res.json();
+                
+                currentItemId = item.id;
+                document.getElementById('modalTitle').textContent = 'Редактировать пункт меню';
+                document.getElementById('itemId').value = item.id;
+                document.getElementById('category').value = item.category;
+                document.getElementById('name').value = item.name;
+                document.getElementById('price').value = item.price;
+                document.getElementById('imagePath').value = item.imagePath;
+                document.getElementById('isFavorite').checked = item.isFavorite;
+                document.getElementById('imageUpload').value = '';
+                
+                document.getElementById('menuItemModal').style.display = 'block';
+            } catch (err) {
+                console.error('Ошибка:', err);
+                alert('Не удалось загрузить данные');
+            }
+        }
+
+        async function submitMenuItemForm() {
+            const form = document.getElementById('menuItemForm');
+            const fileInput = document.getElementById('imageUpload');
+            
+            try {
+                const itemData = {
+                    id: currentItemId,
+                    category: form.category.value,
+                    name: form.name.value,
+                    price: Number(form.price.value),
+                    imagePath: form.imagePath.value,
+                    isFavorite: form.isFavorite.checked
+                };
+
+                if (fileInput.files[0]) {
+                    if (!validateImageFile(fileInput)) return;
+                    itemData.imagePath = await uploadImage(fileInput.files[0]);
+                    fileInput.value = '';
+                    await fetchAvailableImages();
+                }
+
+                const isEditMode = !!currentItemId;
+                const url = isEditMode 
+                    ? `/api/admin/menu-items/${currentItemId}`
+                    : '/api/admin/menu-items';
+                const method = isEditMode ? 'PUT' : 'POST';
+
+                const res = await fetch(url, {
+                    method,
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify(itemData)
+                });
+
+                if (!res.ok) {
+                    const errorData = await res.json();
+                    throw new Error(errorData.error || 'Ошибка сервера');
+                }
+
+                closeModal();
+                await fetchMenuItems();
+                
+            } catch (err) {
+                console.error('Ошибка:', err);
+                alert('Ошибка: ' + err.message);
+            }
+        }
+
+        async function deleteMenuItem(itemId) {
+            if (!confirm('Вы точно хотите удалить этот пункт меню?')) return;
+            
+            try {
+                const res = await fetch(`/api/admin/menu-items/${itemId}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                
+                if (!res.ok) throw new Error('Ошибка удаления');
+                
+                await fetchMenuItems();
+            } catch (err) {
+                console.error('Ошибка:', err);
+                alert('Ошибка удаления: ' + err.message);
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('menuItemModal').style.display = 'none';
+            document.getElementById('menuItemForm').reset();
+            currentItemId = null;
+        }
+
+        window.onclick = function(event) {
+            if (event.target === document.getElementById('menuItemModal')) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>

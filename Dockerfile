@@ -8,6 +8,7 @@ WORKDIR /app
 COPY package.json ./
 RUN npm install
 
+RUN npm install multer jsonwebtoken cookie-parser helmet express-rate-limit
 # Копируем весь проект (кроме игнорируемых файлов)
 COPY . .
 
