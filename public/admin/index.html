@@ -55,7 +55,7 @@
 <body>
     <div class="login-container">
         <h2>Панель администрирования сайтом</h2>
-        <form action="/admin" method="POST">
+        <form id="login-form">
             <div class="form-group">
                 <label for="username">Логин:</label>
                 <input type="text" id="username" name="username" required>
@@ -67,5 +67,26 @@
             <button type="submit">Войти</button>
         </form>
     </div>
+    <script>
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+    
+            const res = await fetch('/admin', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password })
+            });
+    
+            const data = await res.json();
+            if (res.ok) {
+                localStorage.setItem('token', data.token);
+                window.location.href = '/admin/dashboard/';
+            } else {
+                alert(data.error || 'Ошибка входа');
+            }
+        });
+    </script>
 </body>
 </html>
