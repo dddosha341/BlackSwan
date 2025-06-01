@@ -1,135 +1,143 @@
 [
-    {
-      "category": "Закуски",
-      "name": "Карпаччо из говядины с каперсами и пармезаном",
-      "price": 850,
-      "imagePath": "images/Carpaccio.jpg",
-      "isFavorite": true
-    },
-    {
-      "category": "Закуски",
-      "name": "Брускетта с томатами и базиликом",
-      "price": 420,
-      "imagePath": "images/Bruschetta.png",
-      "isFavorite": false
-    },
-    {
-      "category": "Закуски",
-      "name": "Сырная тарелка «Лебединая симфония»",
-      "price": 940,
-      "imagePath": "images/Cheeseplate.jpeg",
-      "isFavorite": false
-    },
-    {
-      "category": "Закуски",
-      "name": "Креветки в чесночном соусе",
-      "price": 780,
-      "imagePath": "images/shrimp.webp",
-      "isFavorite": false
-    },
-    {
-      "category": "Горячие блюда",
-      "name": "Домашняя паста с трюфельным соусом",
-      "price": 790,
-      "imagePath": "images/pasta.jpg",
-      "isFavorite": true
-    },
-    {
-      "category": "Горячие блюда",
-      "name": "Лазанья с говядиной и сыром буррата",
-      "price": 880,
-      "imagePath": "images/bitchLasagna.jpg",
-      "isFavorite": false
-    },
-    {
-      "category": "Горячие блюда",
-      "name": "Ризотто с белыми грибами и вином «Кьянти»",
-      "price": 930,
-      "imagePath": "images/Risotto.jpg",
-      "isFavorite": false
-    },
-    {
-      "category": "Горячие блюда",
-      "name": "Стейк рибай с розмарином",
-      "price": 1450,
-      "imagePath": "images/Steak.jpg",
-      "isFavorite": false
-    },
-    {
-      "category": "Салаты",
-      "name": "Салат с печёной свёклой и козьим сыром",
-      "price": 620,
-      "imagePath": "images/Salad.webp",
-      "isFavorite": false
-    },
-    {
-      "category": "Салаты",
-      "name": "Цезарь с курицей или креветками",
-      "price": 670,
-      "imagePath": "images/Caesar.jpg",
-      "isFavorite": true
-    },
-    {
-      "category": "Салаты",
-      "name": "Тёплый салат с утиной грудкой и ягодным соусом",
-      "price": 750,
-      "imagePath": "images/Warmsalad.jpg",
-      "isFavorite": false
-    },
-    {
-      "category": "Салаты",
-      "name": "Греческий салат с фетой",
-      "price": 580,
-      "imagePath": "images/Greek.jpg",
-      "isFavorite": false
-    },
-    {
-      "category": "Десерты",
-      "name": "Чёрный тирамису с малиной",
-      "price": 540,
-      "imagePath": "images/Tiramisu.jpg",
-      "isFavorite": false
-    },
-    {
-      "category": "Десерты",
-      "name": "Шоколадный фондан с мороженым",
-      "price": 590,
-      "imagePath": "images/fondan.png",
-      "isFavorite": true
-    },
-    {
-      "category": "Десерты",
-      "name": "Панна-котта с ванилью и лесными ягодами",
-      "price": 510,
-      "imagePath": "images/Pannacotta.jpg",
-      "isFavorite": false
-    },
-    {
-      "category": "Десерты",
-      "name": "Чизкейк с карамелью",
-      "price": 550,
-      "imagePath": "images/Cheesecake.jpg",
-      "isFavorite": true
-    },
-    {
-      "category": "Напитки",
-      "name": "Авторский лимонад с лавандой",
-      "price": 320,
-      "imagePath": "images/lemonade.jpg",
-      "isFavorite": true
-    },
-    {
-      "category": "Напитки",
-      "name": "Домашний глинтвейн «Лебединый вечер»",
-      "price": 470,
-      "imagePath": "images/mulledwine.webp",
-      "isFavorite": true
-    },
-    {
-      "category": "Напитки",
-      "name": "Эспрессо",
-      "price": 200,
-      "imagePath": "images/Espresso.jpg",
-      "isFavorite": true
-    }
+  {
+    "category": "Закуски",
+    "name": "Карпаччо из говядины с каперсами и пармезаном",
+    "price": 850,
+    "imagePath": "images/Carpaccio.jpg",
+    "isFavorite": true
+  },
+  {
+    "category": "Закуски",
+    "name": "Брускетта с томатами и базиликом",
+    "price": 420,
+    "imagePath": "images/Bruschetta.png",
+    "isFavorite": false
+  },
+  {
+    "category": "Закуски",
+    "name": "Сырная тарелка «Лебединая симфония»",
+    "price": 940,
+    "imagePath": "images/Cheeseplate.jpeg",
+    "isFavorite": false
+  },
+  {
+    "category": "Закуски",
+    "name": "Креветки в чесночном соусе",
+    "price": 780,
+    "imagePath": "images/shrimp.webp",
+    "isFavorite": false
+  },
+  {
+    "category": "Горячие блюда",
+    "name": "Домашняя паста с трюфельным соусом",
+    "price": 790,
+    "imagePath": "images/pasta.jpg",
+    "isFavorite": true
+  },
+  {
+    "category": "Горячие блюда",
+    "name": "Лазанья с говядиной и сыром буррата",
+    "price": 880,
+    "imagePath": "images/bitchLasagna.jpg",
+    "isFavorite": false
+  },
+  {
+    "category": "Горячие блюда",
+    "name": "Ризотто с белыми грибами и вином «Кьянти»",
+    "price": 930,
+    "imagePath": "images/Risotto.jpg",
+    "isFavorite": false
+  },
+  {
+    "category": "Горячие блюда",
+    "name": "Стейк рибай с розмарином",
+    "price": 1450,
+    "imagePath": "images/Steak.jpg",
+    "isFavorite": false
+  },
+  {
+    "category": "Салаты",
+    "name": "Салат с печёной свёклой и козьим сыром",
+    "price": 620,
+    "imagePath": "images/Salad.webp",
+    "isFavorite": false
+  },
+  {
+    "category": "Салаты",
+    "name": "Цезарь с курицей или креветками",
+    "price": 670,
+    "imagePath": "images/Caesar.jpg",
+    "isFavorite": true
+  },
+  {
+    "category": "Салаты",
+    "name": "Тёплый салат с утиной грудкой и ягодным соусом",
+    "price": 750,
+    "imagePath": "images/Warmsalad.jpg",
+    "isFavorite": false
+  },
+  {
+    "category": "Салаты",
+    "name": "Греческий салат с фетой",
+    "price": 580,
+    "imagePath": "images/Greek.jpg",
+    "isFavorite": false
+  },
+  {
+    "category": "Десерты",
+    "name": "Чёрный тирамису с малиной",
+    "price": 540,
+    "imagePath": "images/Tiramisu.jpg",
+    "isFavorite": false
+  },
+  {
+    "category": "Десерты",
+    "name": "Шоколадный фондан с мороженым",
+    "price": 590,
+    "imagePath": "images/fondan.png",
+    "isFavorite": true
+  },
+  {
+    "category": "Десерты",
+    "name": "Панна-котта с ванилью и лесными ягодами",
+    "price": 510,
+    "imagePath": "images/Pannacotta.jpg",
+    "isFavorite": false
+  },
+  {
+    "category": "Десерты",
+    "name": "Чизкейк с карамелью",
+    "price": 550,
+    "imagePath": "images/Cheesecake.jpg",
+    "isFavorite": true
+  },
+  {
+    "category": "Напитки",
+    "name": "Авторский лимонад с лавандой",
+    "price": 320,
+    "imagePath": "images/lemonade.jpg",
+    "isFavorite": true
+  },
+  {
+    "category": "Напитки",
+    "name": "Домашний глинтвейн «Лебединый вечер»",
+    "price": 470,
+    "imagePath": "images/mulledwine.webp",
+    "isFavorite": true
+  },
+  {
+    "category": "Напитки",
+    "name": "Эспрессо",
+    "price": 200,
+    "imagePath": "images/Espresso.jpg",
+    "isFavorite": true
+  },
+  {
+    "id": 1,
+    "category": "Члены",
+    "name": "Сельдерей",
+    "price": 5,
+    "imagePath": "images/1748799810156-562289565.jpg",
+    "isFavorite": false
+  }
 ]

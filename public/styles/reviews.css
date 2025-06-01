@@ -1,0 +1,144 @@
+/* Общие стили */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+#reviews-section {
+    background: linear-gradient(to right, bisque, blanchedalmond);
+    border-radius: 70px;
+    margin-bottom: 40px;
+    max-width: 1240px;
+    overflow-y: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+/* Заголовки */
+#reviews-section h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#reviews-section h3 {
+    font-size: 24px;
+    margin: 40px 0 12px;
+    text-align: center;
+}
+
+/* Форма отзывов */
+#review-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+/* Поля ввода */
+#review-form input[type="text"],
+#review-form textarea {
+    padding: 14px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f7f7f7;
+    width: 100%;
+}
+
+/* Радио рейтинг */
+.rating-radio-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.rating-radio-group label {
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.rating-radio-group input[type="radio"] {
+    transform: scale(1.3);
+    margin-right: 6px;
+}
+
+/* Кнопки сортировки */
+.reviews-controls {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+}
+
+.review-button {
+    background: linear-gradient(to right, #FFD700, #FFA500);
+    color: #333; /* Чёрный текст */
+    padding: 14px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    text-align: center;
+    white-space: nowrap;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.review-button:hover {
+    background: linear-gradient(to left, #FFA500, #FFD700);
+}
+
+
+/* Список отзывов */
+#reviews-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+/* Один отзыв */
+.review-item {
+    background: #faf7f0;
+    border: 1px solid #c3a25d;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(195, 162, 93, 0.3);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.review-name {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.review-date {
+    font-size: 14px;
+    color: #666;
+}
+
+.review-rating {
+    font-size: 18px;
+    color: #c3a25d;
+    font-weight: bold;
+}
+
+.review-text {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+}
