@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const filteredItems = menuItems.filter(item => item.category === category);
         menuContainer.innerHTML = filteredItems.length > 0
             ? filteredItems.map(item => `
-                <div class="menu-item-top">
+                <div class="menu-item-top" data-id="${item.id}">
                     <img src="../${item.imagePath}" alt="${item.name}">
                     <div class="menu-item-info">
                         <div class="menu-item-title">${item.name}${item.vegetarian ? ' (вег.)' : ''}</div>
@@ -46,7 +46,10 @@ document.addEventListener('DOMContentLoaded', () => {
             return response.json();
         })
         .then(data => {
-            menuItems = data;
+            menuItems = data.map((item, index) => ({
+                id: item.id ?? index + 1, // на случай если id не пришёл
+                ...item
+            }));
             initializeMenu();
         })
         .catch(error => {
