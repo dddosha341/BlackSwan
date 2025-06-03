@@ -1,0 +1,371 @@
+/* Убираем горизонтальную прокрутку */
+body {
+    overflow-x: hidden !important;
+    margin: 0;
+    padding: 0;
+}
+
+.content-block-main.intro-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(to right, bisque, blanchedalmond);
+    border-radius: 70px;
+    margin-bottom: 40px;
+    width: 1240px;
+    overflow-y: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    align-items: center;
+}
+/* Заменяем <p> на div и span */
+.intro-text div {
+    margin-bottom: 1em;
+    font-size: 18px;
+    line-height: 1.4;
+    color: #444;
+}
+
+/* Фото — вертикально и почти на пол экрана */
+.photo-gallery {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+}
+
+.photo-gallery img {
+    height: 30vh;
+    object-fit: cover;
+    border-radius: 16px;
+    background-color: #f3f3f3;
+}
+
+/* Блок с кнопкой и ссылкой */
+.booking-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.booking-options a {
+    font-size: 18px;
+    color: #444;
+}
+
+.bs-button {
+    background: linear-gradient(to right, #edc479 0%, transparent 50%), linear-gradient(to left, #edc479 0%, transparent 50%), #b57b10;
+    color: #333;
+    padding: 14px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    text-align: center;
+    white-space: nowrap;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.bs-button:hover {
+    background: linear-gradient(to left, #FFA500, #FFD700);
+}
+
+/* Второй блок с формой бронирования */
+#booking-block {
+    background: linear-gradient(to right, bisque, blanchedalmond);
+    border-radius: 70px;
+    padding: 20px 30px;
+    max-width: 900px;
+    margin: 0 auto 40px auto;
+    overflow-y: auto;
+}
+
+#booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 30px;
+    background: linear-gradient(to right, bisque, blanchedalmond);
+    border-radius: 70px;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 80%;
+}
+
+.label-text span {
+    font-size: 18px;
+    color: #444;
+}
+
+.input-text,
+.input-textarea {
+    padding: 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: #f7f7f7;
+    font-size: 18px;
+    font-family: inherit;
+    box-sizing: border-box;
+    outline: none;
+    white-space: pre-wrap;
+    min-height: 36px;
+    cursor: text;
+}
+
+.input-text:empty::before,
+.input-textarea:empty::before {
+    content: attr(placeholder);
+    color: #aaa;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* Селект */
+.select {
+    position: relative;
+    user-select: none;
+    font-size: 18px;
+}
+
+.select-selected {
+    padding: 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: #f7f7f7;
+    cursor: pointer;
+}
+
+.select-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    max-height: 150px;
+    overflow-y: auto;
+    z-index: 10;
+    display: none;
+}
+
+.select-options div {
+    padding: 10px 14px;
+    cursor: pointer;
+}
+
+.select-options div:hover,
+.select-options div[aria-selected="true"] {
+    background-color: #ffd700;
+    color: #333;
+}
+
+/* Радио кнопки */
+.radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    max-width: 320px;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 18px;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+}
+
+.radio-option[aria-checked="true"] {
+    border-color: #ffa500;
+    background-color: #fff3cd;
+    font-weight: bold;
+}
+
+/* Кнопка */
+.btn-submit {
+    background: linear-gradient(to right, #edc479 0%, transparent 50%), linear-gradient(to left, #edc479 0%, transparent 50%), #b57b10;
+    color: #333;
+    padding: 14px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    text-align: center;
+    white-space: nowrap;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.btn-submit:hover,
+.btn-submit:focus {
+    background: linear-gradient(to left, #FFA500, #FFD700);
+    outline: none;
+}
+
+.input-date {
+    padding: 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: #f7f7f7;
+    font-size: 18px;
+    font-family: inherit;
+    box-sizing: border-box;
+    outline: none;
+    cursor: pointer;
+    min-height: 36px;
+    user-select: none;
+    position: relative;
+}
+
+.input-date:empty::before {
+    content: attr(placeholder);
+    color: #aaa;
+    pointer-events: none;
+    user-select: none;
+}
+
+.calendar-popup {
+    display: none;
+    position: absolute;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    z-index: 100;
+    padding: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    width: 280px;
+    font-family: Arial, sans-serif;
+    user-select: none;
+}
+
+.calendar-popup table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+}
+
+.calendar-popup th,
+.calendar-popup td {
+    padding: 6px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.calendar-popup th {
+    background: #f0f0f0;
+    font-weight: bold;
+}
+
+.calendar-popup td:hover {
+    background-color: #ffd700;
+    color: #333;
+}
+
+.calendar-popup td.selected {
+    background-color: #ffa500;
+    color: white;
+    font-weight: bold;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+.selected-day {
+    background-color: #ffdd57;
+    border-radius: 50%;
+}
+.disabled {
+    pointer-events: none;
+    color: #aaa;
+}
+
+.calendar-header button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.calendar-header span {
+    font-weight: bold;
+    font-size: 18px;
+    user-select: none;
+}
+
+.input-time {
+    padding: 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: #f7f7f7;
+    font-size: 18px;
+    font-family: inherit;
+    box-sizing: border-box;
+    outline: none;
+    cursor: pointer;
+    min-height: 36px;
+    user-select: none;
+    position: relative;
+}
+
+.input-time:empty::before {
+    content: attr(placeholder);
+    color: #aaa;
+    pointer-events: none;
+    user-select: none;
+}
+
+.time-dropdown {
+    display: none;
+    position: absolute;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    z-index: 100;
+    padding: 5px 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    width: 180px;
+    max-height: 200px;
+    overflow-y: auto;
+    font-family: Arial, sans-serif;
+    user-select: none;
+}
+
+.time-dropdown div.time-option {
+    padding: 8px 16px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.time-dropdown div.time-option:hover,
+.time-dropdown div.time-option:focus {
+    background-color: #ffd700;
+    color: #333;
+    outline: none;
+}

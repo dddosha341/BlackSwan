@@ -1,13 +1,7 @@
-html {
-    opacity: 1;
-    padding: 0;
+ html, body {
     margin: 0;
-}
+    padding: 0;
 
-body {
-    padding: 0;
-    margin: 0;
-}
 
 .header-container {
     position: sticky;
@@ -121,9 +115,9 @@ body {
 }
 
 .content-block-main-photo {
-    display: flex; 
+    display: flex; /* Исправлено: было flex: flex; */
     max-width: 600px;
-    margin: 0 auto; 
+    margin: 0 auto; /* Центрирует сам блок по горизонтали, если нужно */
     justify-content: center;
     align-items: center;  
     overflow: hidden;
@@ -252,7 +246,6 @@ body {
     border-radius: 5px;
     display: inline-block;
 }
-
 
 .no-favorites {
     width: 100%;

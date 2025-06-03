@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+
     fetch('/api/menu')
         .then(response => {
             if (!response.ok) throw new Error('Сервер вернул ошибку');

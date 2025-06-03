@@ -1,0 +1,190 @@
+#reviews-section {
+    background: linear-gradient(to right, bisque, blanchedalmond);
+    border-radius: 70px;
+    margin-bottom: 40px;
+    max-width: 1240px;
+    overflow-y: auto;
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Отступ между блоками */
+}
+
+/* Вводный текст */
+.review-intro {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Форма отзывов */
+.review-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+/* Поля формы */
+.form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.label-text {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.bs-input {
+    padding: 14px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f7f7f7;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.bs-input[data-name="review-text"] {
+    min-height: 80px;
+    line-height: 1.6;
+}
+
+/* Радио рейтинг */
+.rating-radio-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.radio-option {
+    font-size: 18px;
+    cursor: pointer;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f7f7f7;
+}
+
+.radio-option[aria-checked="true"] {
+    background: linear-gradient(to right, #FFD700, #FFA500);
+    color: #333;
+}
+
+/* Кнопки */
+.review-button {
+    background: linear-gradient(to right, #edc479 0%, transparent 50%), linear-gradient(to left, #edc479 0%, transparent 50%), #b57b10;
+    color: #333;
+    padding: 14px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    text-align: center;
+    white-space: nowrap;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.review-button:hover {
+    background: linear-gradient(to left, #FFA500, #FFD700);
+}
+
+/* Секция отзывов */
+.reviews-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 40px; /* Дополнительный отступ сверху */
+    border-top: 2px solid #c3a25d; /* Разделительная линия */
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Кнопки сортировки */
+.reviews-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+}
+
+/* Список отзывов */
+#reviews-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+/* Один отзыв */
+.review-item {
+    background: #faf7f0;
+    border: 1px solid #c3a25d;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(195, 162, 93, 0.3);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.review-name {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.review-date {
+    font-size: 14px;
+    color: #666;
+}
+
+.review-rating {
+    font-size: 18px;
+    color: #c3a25d;
+    font-weight: bold;
+}
+
+.review-text {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Уведомления */
+.bs-notification {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+.bs-notification-success {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.bs-notification-error {
+    background-color: #f44336;
+    color: white;
+}

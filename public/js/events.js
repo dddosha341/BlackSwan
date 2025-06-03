@@ -93,7 +93,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Анимация появления карточек
         function animateCards() {
             const cards = document.querySelectorAll('.event-card');
             cards.forEach((card, index) => {
@@ -107,14 +106,12 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Обработчик изменения фильтра
         eventTypeFilter.addEventListener('change', (e) => {
             const selectedType = e.target.value;
             console.log('Selected filter type:', selectedType);
             displayEvents(selectedType);
         });
 
-        // Инициализация при загрузке
         loadEvents();
     }
 });
