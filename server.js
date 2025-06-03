@@ -453,9 +453,9 @@ app.get('/api/reviews', (req, res) => {
 });
 
 app.post('/api/booking', (req, res) => {
-    const { name, date, time, people, requests } = req.body;
+    const { name, date, time, phone, people, requests } = req.body;
 
-    if (!name || !date || !time || !people) {
+    if (!name || !date || !time || !phone || !people) {
         return res.status(400).json({ error: 'Неполные данные бронирования' });
     }
 
@@ -463,6 +463,7 @@ app.post('/api/booking', (req, res) => {
         name,
         date,
         time,
+        phone,
         people,
         requests,
         isCalled: false

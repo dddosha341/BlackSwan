@@ -38,7 +38,6 @@
     </div>
 </div>
 <div class="content">
-    <div class="content-block" id="intro-block">
         <div class="content-block-main intro-section">
             <div class="intro-text">
                 <div>
@@ -53,17 +52,15 @@
                 <img src="../images/event.jpg" alt="Фото крупного мероприятия">
             </div>
             <div class="booking-options">
-                <a href="tel:+780055535035">
+                <a href="+7(4852)24-04-78">
                     <button class="bs-button">
-                        Забронировать столик по номеру 8-800-555-350-35
+                        Забронировать столик по номеру +7(4852)24-04-78
                     </button>
                 </a>
                 <a>или оставьте заявку на сайте</a>
             </div>
         </div>
-    </div>
-    <div id="booking-form" role="form" aria-labelledby="booking-form-title" tabindex="0">
-
+    <div class="content-block-main intro-section">
         <div class="form-row">
             <div class="label-text"><span>Ваше имя:</span></div>
             <div class="input-text" contenteditable="true" data-name="client-name" aria-required="true" role="textbox" tabindex="0" spellcheck="false" placeholder="Введите ваше имя"></div>
@@ -79,6 +76,11 @@
             <div class="label-text"><span>Время:</span></div>
             <div class="input-time" tabindex="0" aria-required="true" role="listbox" aria-expanded="false" aria-label="Выберите время" placeholder="Выберите время"></div>
             <div class="time-dropdown" aria-hidden="true"></div>
+        </div>
+
+        <div class="form-row">
+            <div class="label-text"><span>Ваш номер:</span></div>
+            <div class="input-text" contenteditable="true" data-number="client-number" aria-required="true" role="textbox" tabindex="0" spellcheck="false" placeholder="Введите ваше имя"></div>
         </div>
 
         <div class="form-row">
@@ -99,7 +101,6 @@
         <div class="form-row">
             <div class="btn-submit" role="button" tabindex="0" aria-pressed="false">Забронировать</div>
         </div>
-
     </div>
 </div>
 <script src="../js/routing.js"></script>

@@ -5,24 +5,21 @@ body {
     padding: 0;
 }
 
-/* Общий стиль содержимого */
-.content {
-    background: none; /* убирать фон и скругление у общего контейнера */
-    margin-bottom: 0; /* убрать нижний отступ */
-    max-width: 1240px;
-    overflow: visible;
-    padding: 0;
-}
-
-/* Первый блок с контентом */
-#intro-block {
+.content-block-main.intro-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background: linear-gradient(to right, bisque, blanchedalmond);
     border-radius: 70px;
     margin-bottom: 40px;
-    padding: 20px 30px;
+    width: 1240px;
     overflow-y: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    align-items: center;
 }
-
 /* Заменяем <p> на div и span */
 .intro-text div {
     margin-bottom: 1em;
@@ -34,7 +31,7 @@ body {
 /* Фото — вертикально и почти на пол экрана */
 .photo-gallery {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 25px;
 }
 
@@ -60,7 +57,7 @@ body {
 }
 
 .bs-button {
-    background: linear-gradient(to right, #FFD700, #FFA500);
+    background: linear-gradient(to right, #edc479 0%, transparent 50%), linear-gradient(to left, #edc479 0%, transparent 50%), #b57b10;
     color: #333;
     padding: 14px 24px;
     font-size: 18px;
@@ -106,6 +103,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 6px;
+    width: 80%;
 }
 
 .label-text span {
@@ -205,16 +203,17 @@ body {
 
 /* Кнопка */
 .btn-submit {
-    background: linear-gradient(to right, #FFD700, #FFA500);
+    background: linear-gradient(to right, #edc479 0%, transparent 50%), linear-gradient(to left, #edc479 0%, transparent 50%), #b57b10;
     color: #333;
     padding: 14px 24px;
     font-size: 18px;
     font-weight: bold;
+    border: none;
     border-radius: 25px;
-    text-align: center;
     cursor: pointer;
-    user-select: none;
     transition: background 0.3s ease;
+    text-align: center;
+    white-space: nowrap;
     max-width: 100%;
     box-sizing: border-box;
 }
