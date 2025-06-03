@@ -1,6 +1,6 @@
-/* Стили для events.html */
+
 .events-section {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
@@ -14,12 +14,35 @@
     font-size: 24px;
     margin-bottom: 15px;
     color: #333;
+    text-align: center; 
 }
 
 .events-section p {
     font-size: 18px;
     line-height: 1.5;
     margin-bottom: 10px;
+}
+
+#events-intro p {
+    text-align: center; 
+}
+
+#follow-us {
+    padding: 20px 0; 
+}
+
+#follow-us p {
+    text-align: center; 
+    font-size: 20px;
+    line-height: 1.8; 
+    color: #333; 
+    font-family: 'Arial', sans-serif; 
+    margin-bottom: 15px; 
+}
+
+#follow-us p strong {
+    color: #333; 
+    font-weight: bold;
 }
 
 .filter-section {
@@ -45,11 +68,16 @@
 }
 
 .event-card {
-    background: #fffdf5; /* Светлый фон, как на фото */
-    border-radius: 15px; /* Закругленные углы */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Тень */
+    background: #fffdf5; 
+    border-radius: 15px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
     overflow: hidden;
     animation: fadeInUp 0.5s ease-out;
+    display: flex; 
+    align-items: stretch; 
+    width: 1000px; 
+    height: 350px;
+    margin: 0 auto; 
 }
 
 .event-card.upcoming {
@@ -58,7 +86,7 @@
 
 .event-card.past {
     border-left: 5px solid #ccc;
-    background-color: #f5f5f5; /* Серый фон для прошедших */
+    background-color: #f5f5f5; 
 }
 
 .event-image {
@@ -69,7 +97,7 @@
 
 .event-content {
     display: flex;
-    padding: 20px; /* Увеличенные отступы */
+    padding: 20px; 
     gap: 20px;
 }
 
@@ -79,7 +107,7 @@
     color: #666;
     border-right: 2px solid #FFD700;
     padding-right: 15px;
-    line-height: 1.5; /* Для лучшего выравнивания текста */
+    line-height: 1.5; 
 }
 
 .event-details {
@@ -87,17 +115,54 @@
 }
 
 .event-details h4 {
-    font-size: 22px; /* Чуть больше для заголовка */
+    font-size: 22px; 
     margin-bottom: 10px;
     color: #333;
     font-weight: bold;
+    background-color: #f5f5f5; 
+}
+
+.event-image {
+    width: 400px; 
+    height: 100%; 
+    object-fit: contain; 
+    display: block;
+    margin: 10px; 
+}
+
+.event-content {
+    padding: 10px; 
+    flex: 1;
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between; 
+    overflow: hidden; 
+}
+
+.event-details {
+    flex: 1; 
+    overflow: hidden; 
+}
+
+.event-details h4 {
+    font-size: 24px; 
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    white-space: nowrap; 
 }
 
 .event-details p {
     font-size: 16px;
     margin: 5px 0;
-    line-height: 1.6; /* Улучшенная читаемость */
+    line-height: 1.6; 
     color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
 }
 
 .event-details p strong {
@@ -109,16 +174,31 @@
     font-size: 14px;
     color: #888;
     margin-top: 5px;
-    font-style: italic; /* Курсив для заметок, как на фото */
+    font-style: italic; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.event-date {
+    font-size: 16px;
+    color: #666;
+    padding-top: 10px;
+    border-top: 2px solid #FFD700; 
+    line-height: 1.5;
+    text-align: center; 
+    margin-top: 15px; 
+    flex-shrink: 0; 
 }
 
 .event-action {
     display: block;
     margin-top: 15px;
-    padding: 10px 20px;
+
+    padding: 12px 25px; 
     border: none;
     border-radius: 5px;
-    background: linear-gradient(to right, #FFD700, #FFC107); /* Градиент желтого */
+    background: linear-gradient(to right, #edc479 0%, transparent 50%), linear-gradient(to left, #edc479 0%, transparent 50%), #b57b10; ; 
     color: #333;
     font-size: 16px;
     font-weight: bold;
@@ -129,9 +209,13 @@
 
 .event-action:hover {
     background: linear-gradient(to right, #FFC107, #FFD700); /* Обратный градиент при наведении */
+    flex-shrink: 0; 
 }
 
-/* Анимация появления */
+.event-action:hover {
+    background: linear-gradient(to right, #b57b10, #edc479); 
+}
+
 @keyframes fadeInUp {
     from {
         opacity: 0;

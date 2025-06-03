@@ -27,6 +27,66 @@
     cursor: pointer;
     transition: background-color 0.3s;
 }
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content {
+    flex: 1;
+}
+
+.footer-content {
+    background-color: black;
+    color: white;
+    font-size: 35px;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    margin-top: auto;
+}
+
+.menu-container {
+    display: flex;
+    flex: 1;
+    min-height: 700px;
+    border-radius: 15px;
+}
+
+.menu-sidebar {
+    width: 200px; 
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.category-btn {
+    max-height: 50px; 
+    width: 100%;
+    padding: 15px 0; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px; 
+    background-color: #e0e0e0;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    flex-grow: 1;
+    margin: 10px 0;
+}
 
 .category-btn.active {
     background-color: #000;
@@ -40,6 +100,10 @@
 .menu-content {
     flex: 1;
     padding: 20px;
+    background: #D3D3D3; 
+    border-radius: 15px 15px 15px 15px; 
+    display: flex;
+    flex-direction: column;
 }
 
 .menu-content h2 {
@@ -92,6 +156,9 @@
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
 }
 
 .menu-item-tile {
@@ -100,12 +167,35 @@
     overflow: hidden;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
+    padding: 10px;
 }
 
 .menu-item-tile img {
     width: 100%;
     height: 150px;
     object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+.menu-item-info {
+    padding: 10px;
+}
+
+.menu-item-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #000;
+}
+
+.menu-item-price {
+    font-size: 18px;
+    color: #000;
+    font-weight: bold;
+   background: linear-gradient(to right, #edc479 0%, transparent 50%), linear-gradient(to left, #edc479 0%, transparent 50%), #b57b10; /* Золотой фон только для цены */
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
 }
 
 .menu-card {
@@ -126,6 +216,7 @@
     width: 100%;
     height: 180px;
     object-fit: cover;
+
 }
 
 .menu-card-title {

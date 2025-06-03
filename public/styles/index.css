@@ -1,7 +1,7 @@
  html, body {
     margin: 0;
     padding: 0;
-}
+
 
 .header-container {
     position: sticky;
@@ -90,9 +90,9 @@
 .content {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Центрирование по горизонтали */
-    max-width: 1200px; /* Ограничение максимальной ширины */
-    margin: 0 auto; /* Автоматические отступы по бокам для центрирования */
+    align-items: center; 
+    max-width: 1200px; 
+    margin: 0 auto;
     padding: 20px;
     box-sizing: border-box;
 }
@@ -176,7 +176,9 @@
     border-radius: 10px;
     padding: 10px;
     font-size: 30px;
-    background: linear-gradient(to right, #FFD700, #FFA500);
+    background: linear-gradient(to right, #edc479 0%, transparent 90%), 
+    linear-gradient(to left, #edc479 0%, transparent 90%), 
+    #b57b10;
     cursor: pointer;
 }
 
@@ -236,9 +238,13 @@
 }
 
 .menu-item-price {
-    font-size: 14px;
-    color: #FFD700;
+    font-size: 18px;
+    color: #000;
     font-weight: bold;
+    background: linear-gradient(to right, #edc479 0%, transparent 50%), linear-gradient(to left, #edc479 0%, transparent 50%), #b57b10; /* Золотой фон только для цены */
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
 }
 
 .no-favorites {

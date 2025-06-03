@@ -16,13 +16,5 @@
     "requests": "sdfsdf",
     "phone": "+79992221144",
     "isCalled": false
-  },
-  {
-    "name": "52",
-    "date": "2025-05-14",
-    "time": "16:00",
-    "people": "3-4",
-    "requests": "Экспорт",
-    "isCalled": false
   }
 ]

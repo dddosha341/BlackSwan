@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log('Документ загружен, инициализация скрипта booking.js');
-
     // === КАЛЕНДАРЬ ===
     const dateInput = document.querySelector('.input-date');
     const calendarPopup = document.querySelector('.calendar-popup');

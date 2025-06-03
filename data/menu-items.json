@@ -1,26 +1,31 @@
+
 [
   {
+    "id": 1,
     "category": "Закуски",
     "name": "Карпаччо из говядины с каперсами и пармезаном",
     "price": 850,
-    "imagePath": "images/Carpaccio.jpg",
+    "imagePath": "images/carpaccio.jpg",
     "isFavorite": true
   },
   {
+    "id": 2,
     "category": "Закуски",
     "name": "Брускетта с томатами и базиликом",
     "price": 420,
-    "imagePath": "images/Bruschetta.png",
+    "imagePath": "images/bruschetta.png",
     "isFavorite": false
   },
   {
+    "id": 3,
     "category": "Закуски",
     "name": "Сырная тарелка «Лебединая симфония»",
     "price": 940,
-    "imagePath": "images/Cheeseplate.jpeg",
+    "imagePath": "images/cheeseplate.jpeg",
     "isFavorite": false
   },
   {
+    "id": 4,
     "category": "Закуски",
     "name": "Креветки в чесночном соусе",
     "price": 780,
@@ -28,6 +33,7 @@
     "isFavorite": false
   },
   {
+    "id": 5,
     "category": "Горячие блюда",
     "name": "Домашняя паста с трюфельным соусом",
     "price": 790,
@@ -35,62 +41,71 @@
     "isFavorite": true
   },
   {
+    "id": 6,
     "category": "Горячие блюда",
     "name": "Лазанья с говядиной и сыром буррата",
     "price": 880,
-    "imagePath": "images/bitchLasagna.jpg",
+    "imagePath": "images/bitchlasagna.jpg",
     "isFavorite": false
   },
   {
+    "id": 7,
     "category": "Горячие блюда",
     "name": "Ризотто с белыми грибами и вином «Кьянти»",
     "price": 930,
-    "imagePath": "images/Risotto.jpg",
+    "imagePath": "images/risotto.jpg",
     "isFavorite": false
   },
   {
+    "id": 8,
     "category": "Горячие блюда",
     "name": "Стейк рибай с розмарином",
     "price": 1450,
-    "imagePath": "images/Steak.jpg",
+    "imagePath": "images/steak.jpg",
     "isFavorite": false
   },
   {
+    "id": 9,
     "category": "Салаты",
     "name": "Салат с печёной свёклой и козьим сыром",
     "price": 620,
-    "imagePath": "images/Salad.webp",
+    "imagePath": "images/salad.webp",
     "isFavorite": false
   },
   {
+    "id": 10,
     "category": "Салаты",
     "name": "Цезарь с курицей или креветками",
     "price": 670,
-    "imagePath": "images/Caesar.jpg",
+    "imagePath": "images/caesar.jpg",
     "isFavorite": true
   },
   {
+    "id": 11,
     "category": "Салаты",
     "name": "Тёплый салат с утиной грудкой и ягодным соусом",
     "price": 750,
-    "imagePath": "images/Warmsalad.jpg",
+    "imagePath": "images/warmsalad.jpg",
     "isFavorite": false
   },
   {
+    "id": 12,
     "category": "Салаты",
     "name": "Греческий салат с фетой",
     "price": 580,
-    "imagePath": "images/Greek.jpg",
+    "imagePath": "images/greek.jpg",
     "isFavorite": false
   },
   {
+    "id": 13,
     "category": "Десерты",
     "name": "Чёрный тирамису с малиной",
     "price": 540,
-    "imagePath": "images/Tiramisu.jpg",
+    "imagePath": "images/tiramisu.jpg",
     "isFavorite": false
   },
   {
+    "id": 14,
     "category": "Десерты",
     "name": "Шоколадный фондан с мороженым",
     "price": 590,
@@ -98,20 +113,23 @@
     "isFavorite": true
   },
   {
+    "id": 15,
     "category": "Десерты",
     "name": "Панна-котта с ванилью и лесными ягодами",
     "price": 510,
-    "imagePath": "images/Pannacotta.jpg",
+    "imagePath": "images/pannacotta.jpg",
     "isFavorite": false
   },
   {
+    "id": 16,
     "category": "Десерты",
     "name": "Чизкейк с карамелью",
     "price": 550,
-    "imagePath": "images/Cheesecake.jpg",
+    "imagePath": "images/cheesecake.jpg",
     "isFavorite": true
   },
   {
+    "id": 17,
     "category": "Напитки",
     "name": "Авторский лимонад с лавандой",
     "price": 320,
@@ -119,25 +137,18 @@
     "isFavorite": true
   },
   {
+    "id": 18,
     "category": "Напитки",
     "name": "Домашний глинтвейн «Лебединый вечер»",
     "price": 470,
     "imagePath": "images/mulledwine.webp",
     "isFavorite": true
   },
-  {
+    "id": 19,
     "category": "Напитки",
     "name": "Эспрессо",
     "price": 200,
-    "imagePath": "images/Espresso.jpg",
+    "imagePath": "images/espresso.jpg",
     "isFavorite": true
-  },
-  {
-    "id": 1,
-    "category": "Члены",
-    "name": "Сельдерей",
-    "price": 5,
-    "imagePath": "images/1748799810156-562289565.jpg",
-    "isFavorite": false
   }
 ]
