@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
         let events = [];
         const today = new Date('2025-05-22T12:21:00'); // Текущее время (12:21 PM PDT)
 
-
         // Загрузка данных из events.json или localStorage
         function loadEvents() {
             console.log('Fetching events from API...');
@@ -68,26 +67,35 @@ document.addEventListener('DOMContentLoaded', () => {
                 ${filteredEvents.map(event => {
                     const eventDate = new Date(event.date);
                     const isUpcoming = eventDate > today && event.status === 'upcoming';
-                    const actionButton = isUpcoming ? 'Забронировать столик' : 'Забронировать';
+                    const actionButton = isUpcoming ? 'Забронировать' : 'Забронировать';
                     return `
                         <div class="event-card ${isUpcoming ? 'upcoming' : 'past'}" data-id="${event.id}">
                             <img src="${event.imagePath || 'images/placeholder.jpg'}" alt="${event.title}" class="event-image">
                             <div class="event-content">
-                                <div class="event-date">${eventDate.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long' })}, ${eventDate.toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' })}</div>
                                 <div class="event-details">
                                     <h4>${event.title}</h4>
                                     ${event.performer ? `<p><strong>Исполнитель:</strong> ${event.performer}</p>` : ''}
                                     <p><strong>Описание:</strong> ${event.description}</p>
                                     ${event.price ? `<p class="event-price"><em>Вход: ${event.price}₽</em></p>` : ''}
                                     ${event.note ? `<p class="event-note"><em>${event.note}</em></p>` : ''}
-                                    <button class="event-action">${actionButton}</button>
+                                    <button class="event-action" data-event-id="${event.id}">${actionButton}</button>
                                 </div>
+                                <div class="event-date">${eventDate.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long' })}, ${eventDate.toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' })}</div>
                             </div>
                         </div>
                     `;
                 }).join('')}
             `;
             animateCards();
+
+            // Добавляем обработчик событий для кнопок
+            document.querySelectorAll('.event-action').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const eventId = e.target.getAttribute('data-event-id');
+                    // Перенаправление на страницу бронирования с параметром eventId
+                    window.location.href = `../booking?eventId=${eventId}`;
+                });
+            });
         }
 
         // Анимация появления карточек
