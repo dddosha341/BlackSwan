@@ -1,7 +1,7 @@
  html, body {
     margin: 0;
     padding: 0;
-
+ }
 
 .header-container {
     position: sticky;
@@ -254,6 +254,3 @@
     color: #666;
     padding: 20px;
 }
-
-
-
