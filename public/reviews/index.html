@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html>
 <head>
-    <link rel="stylesheet" href="../styles/index.css" />
+    <link rel="stylesheet" href="../styles/index.css">
     <link rel="stylesheet" href="../styles/menu.css">
-    <link rel="stylesheet" href="../styles/reviews.css" />
+    <link rel="stylesheet" href="../styles/reviews.css">
 </head>
 <body>
 <div class="header-container">
@@ -37,43 +37,56 @@
         </div>
     </div>
 </div>
-
 <div class="content">
     <div class="content-block">
         <div class="content-block-main" id="reviews-section">
-            <h2>Оставить отзыв</h2>
-            <form id="review-form">
-                <div>
-                    <label for="review-name">Имя:</label>
-                    <input id="review-name" type="text" class="bs-input" required />
+            <!-- Первый блок: текст и форма -->
+            <div class="review-intro">
+                <span>Каждый вечер в «Чёрном Лебеде» создаётся особая атмосфера - благодаря вам.</span>
+                <span>Нам важно знать, как прошёл ваш визит, и мы благодарны за каждое мнение.</span>
+                <span>Поделитесь впечатлением</span>
+                <span>Оставьте короткий отзыв - расскажите, что вам понравилось, а что, возможно, стоит улучшить.</span>
+                <span>Мы внимательно читаем каждое сообщение и делаем всё, чтобы стать лучше.</span>
+            </div>
+            <div id="review-form" class="review-form">
+                <div class="form-row">
+                    <span class="label-text">Имя:</span>
+                    <div class="bs-input" contenteditable="true" data-name="review-name" role="textbox" tabindex="0" spellcheck="false" aria-required="true" placeholder="Введите ваше имя"></div>
                 </div>
-                <div>
-                    <label for="review-text">Текст отзыва:</label>
-                    <textarea id="review-text" class="bs-input" rows="4" required></textarea>
+                <div class="form-row">
+                    <span class="label-text">Текст отзыва:</span>
+                    <div class="bs-input" contenteditable="true" data-name="review-text" role="textbox" tabindex="0" spellcheck="true" aria-multiline="true" style="min-height: 80px;" placeholder="Введите текст отзыва"></div>
                 </div>
-                <div>
-                    <label>Оценка:</label>
-                    <div class="rating-radio-group">
-                        <label><input type="radio" name="rating" value="1" required /> 1</label>
-                        <label><input type="radio" name="rating" value="2" /> 2</label>
-                        <label><input type="radio" name="rating" value="3" /> 3</label>
-                        <label><input type="radio" name="rating" value="4" /> 4</label>
-                        <label><input type="radio" name="rating" value="5" /> 5</label>
+                <div class="form-row">
+                    <span class="label-text">Оценка:</span>
+                    <div class="rating-radio-group" role="radiogroup" data-name="rating" aria-required="true" tabindex="0">
+                        <div class="radio-option" role="radio" tabindex="-1" data-value="1" aria-checked="false"><span>1</span></div>
+                        <div class="radio-option" role="radio" tabindex="-1" data-value="2" aria-checked="false"><span>2</span></div>
+                        <div class="radio-option" role="radio" tabindex="-1" data-value="3" aria-checked="false"><span>3</span></div>
+                        <div class="radio-option" role="radio" tabindex="-1" data-value="4" aria-checked="false"><span>4</span></div>
+                        <div class="radio-option" role="radio" tabindex="-1" data-value="5" aria-checked="false"><span>5</span></div>
                     </div>
                 </div>
-                <button type="submit" class="review-button">Отправить</button>
-            </form>
-            <h3>Все отзывы</h3>
-            <div class="reviews-controls">
-                <button onclick="sortReviews('date')" class="review-button">Сортировать по дате</button>
-                <button onclick="sortReviews('rating')" class="review-button">Сортировать по оценке</button>
+                <div class="form-row">
+                    <div class="review-button" role="button" tabindex="0" aria-pressed="false">Отправить</div>
+                </div>
             </div>
-            <div id="reviews-list"></div>
+            <!-- Второй блок: отзывы -->
+            <div class="reviews-section">
+                <div class="section-title"><span>Все отзывы</span></div>
+                <div class="reviews-controls">
+                    <div class="review-button" role="button" tabindex="0" onclick="sortReviews('date')">Сортировать по дате</div>
+                    <div class="review-button" role="button" tabindex="0" onclick="sortReviews('rating')">Сортировать по оценке</div>
+                </div>
+                <div id="reviews-list"></div>
+            </div>
         </div>
     </div>
 </div>
 
-<footer>
+<div id="notification" class="bs-notification"></div>
+
+<div class="footer">
     <div class="footer-content">
         <div class="phone">8-800-555-350-35</div>
         <div class="address">г. Ярославль, ул. Собинова, д. 52</div>
@@ -84,7 +97,7 @@
             <div class="media-block"><img src="../images/vk-logo.svg" alt="VK" /></div>
         </div>
     </div>
-</footer>
+</div>
 
 <script src="../js/routing.js"></script>
 <script src="../js/reviews.js"></script>

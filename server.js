@@ -506,6 +506,7 @@ app.get('/api/events', (req, res) => {
 });
 
 app.get('/api/reviews', (req, res) => {
+    console.log('GET /api/reviews'); // Отладка
     fs.readFile(path.join(__dirname, 'data/reviews.json'), 'utf8', (err, data) => {
         if (err) {
             console.error('Error reading reviews.json:', err);
@@ -514,10 +515,15 @@ app.get('/api/reviews', (req, res) => {
         let reviews = [];
         try {
             reviews = JSON.parse(data);
-        } catch {
+            console.log('Всего отзывов в файле:', reviews.length); // Отладка
+        } catch (e) {
+            console.error('Invalid JSON in reviews.json:', e);
             reviews = [];
         }
-        res.json(reviews);
+        // Ограничение до 20 отзывов
+        const limitedReviews = reviews.slice(0, 20);
+        console.log('Отправлено отзывов:', limitedReviews.length); // Отладка
+        res.json(limitedReviews);
     });
 });
 
