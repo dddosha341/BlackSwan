@@ -8,7 +8,7 @@
         "description": "Живой аккомпанемент под романтический ужин. Погрузитесь в чарующие звуки скрипки и гитары в обстановке свечей.",
         "note": "Бронирование обязательно. Количество мест ограничено.",
         "status": "upcoming",
-        "imagePath": "../images/alive.jpg"
+        "imagePath": "images/alive.jpg"
     },
     {
         "id": 2,
@@ -20,7 +20,7 @@
         "price": 1500,
         "note": "Участие по предварительной записи.",
         "status": "upcoming",
-        "imagePath": "../images/evening.png"
+        "imagePath": "images/evening.png"
     },
     {
         "id": 3,
@@ -29,7 +29,7 @@
         "type": "Праздник",
         "description": "Праздничный ужин с итальянским меню из 7 курсов, уличными артистами, фокусником и фотозоной в венецианском стиле.",
         "status": "upcoming",
-        "imagePath": "../images/Carnivalofflavors.webp"
+        "imagePath": "images/carnivalofflavors.webp"
     },
     {
         "id": 4,
@@ -38,7 +38,7 @@
         "type": "Музыка",
         "description": "Живой вокал под рояль, классические оперные арии и атмосфера зала, погружённого в мягкий свет и вино.",
         "status": "upcoming",
-        "imagePath": "../images/night.jpg"
+        "imagePath": "images/night.jpg"
     },
     {
         "id": 5,
@@ -49,6 +49,6 @@
         "description": "Романтический вечер с живым джазом и коктейлями.",
         "note": "Бронирование обязательно.",
         "status": "upcoming",
-        "imagePath": "../images/jas.jpg"
+        "imagePath": "images/jas.jpg"
     }
 ] 

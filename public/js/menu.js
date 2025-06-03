@@ -39,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Получаем данные через API
     fetch('/api/menu')
         .then(response => {
             if (!response.ok) throw new Error('Сервер вернул ошибку');
@@ -47,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(data => {
             menuItems = data.map((item, index) => ({
-                id: item.id ?? index + 1, // на случай если id не пришёл
+                id: item.id ?? index + 1,
                 ...item
             }));
             initializeMenu();

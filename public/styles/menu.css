@@ -1,4 +1,3 @@
-/* Убедитесь, что футер прилипает к низу */
 html, body {
     height: 100%;
     margin: 0;
@@ -15,7 +14,6 @@ body {
     flex: 1;
 }
 
-/* Стили для футера */
 .footer-content {
     background-color: black;
     color: white;
@@ -26,31 +24,29 @@ body {
     margin-top: auto;
 }
 
-/* Стили для объединенного контейнера меню */
 .menu-container {
     display: flex;
     flex: 1;
     min-height: 700px;
     border-radius: 15px;
-    /* box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); */
 }
 
 .menu-sidebar {
-    width: 200px; /* Фиксированная ширина для категорий */
+    width: 200px; 
     padding: 20px 10px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-start;
 }
 
 .category-btn {
-    max-height: 50px; /* Увеличиваем минимальную высоту */
+    max-height: 50px; 
     width: 100%;
-    padding: 15px 0; /* Увеличиваем внутренние отступы */
+    padding: 15px 0; 
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 18px; /* Увеличиваем размер шрифта */
+    font-size: 18px; 
     background-color: #e0e0e0;
     border: none;
     border-radius: 15px;
@@ -72,12 +68,11 @@ body {
     background-color: #d3d3d3;
 }
 
-/* Стили для содержимого меню на сером фоне */
 .menu-content {
     flex: 1;
     padding: 20px;
-    background: #D3D3D3; /* Серый фон для блюд */
-    border-radius: 0 15px 15px 0; /* Закругление только правых углов */
+    background: #D3D3D3; 
+    border-radius: 15px 15px 15px 15px; 
     display: flex;
     flex-direction: column;
 }
@@ -92,7 +87,6 @@ body {
     margin-bottom: 20px;
 }
 
-/* Стили для формы администратора */
 .admin-form {
     padding: 20px;
     max-width: 500px;
@@ -123,7 +117,6 @@ body {
     cursor: pointer;
 }
 
-/* Стили для сетки меню */
 .menu-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -133,9 +126,8 @@ body {
     padding: 20px;
 }
 
-/* Стили для карточек меню */
 .menu-item-tile {
-    background: #fff; /* Белый фон для карточки */
+    background: #fff;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -171,7 +163,6 @@ body {
     display: inline-block;
 }
 
-/* Стили для карточек с эффектом наведения */
 .menu-card {
     border: 1px solid #ddd;
     border-radius: 10px;

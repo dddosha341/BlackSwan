@@ -1,9 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     if (window.location.pathname.includes('events')) {
         let events = [];
-        const today = new Date('2025-05-22T12:21:00'); // Текущее время (12:21 PM PDT)
+        const today = new Date('2025-05-22T12:21:00'); 
 
-        // Загрузка данных из events.json или localStorage
         function loadEvents() {
             console.log('Fetching events from API...');
             fetch('/api/events')
@@ -28,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const eventsList = document.getElementById('events-list');
         const eventTypeFilter = document.getElementById('event-type');
 
-        // Функция заполнения выпадающего списка уникальными типами
         function populateEventTypes() {
             if (!events || events.length === 0) {
                 console.log('No events to populate types');
@@ -39,7 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
             eventTypeFilter.innerHTML = uniqueTypes.map(type => `<option value="${type}">${type === 'all' ? 'Все' : type}</option>`).join('');
         }
 
-        // Функция отображения событий с фильтрацией по типу
         function displayEvents(filterType = 'all') {
             if (!events || events.length === 0) {
                 eventsList.innerHTML = '<p>Нет событий. Проверьте консоль для ошибок.</p>';
@@ -70,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const actionButton = isUpcoming ? 'Забронировать' : 'Забронировать';
                     return `
                         <div class="event-card ${isUpcoming ? 'upcoming' : 'past'}" data-id="${event.id}">
-                            <img src="${event.imagePath || 'images/placeholder.jpg'}" alt="${event.title}" class="event-image">
+                            <img src="../${event.imagePath || 'images/placeholder.jpg'}" alt="${event.title}" class="event-image">
                             <div class="event-content">
                                 <div class="event-details">
                                     <h4>${event.title}</h4>
@@ -88,11 +85,9 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             animateCards();
 
-            // Добавляем обработчик событий для кнопок
             document.querySelectorAll('.event-action').forEach(button => {
                 button.addEventListener('click', (e) => {
                     const eventId = e.target.getAttribute('data-event-id');
-                    // Перенаправление на страницу бронирования с параметром eventId
                     window.location.href = `../booking?eventId=${eventId}`;
                 });
             });

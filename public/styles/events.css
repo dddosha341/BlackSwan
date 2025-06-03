@@ -1,6 +1,5 @@
-/* Стили для events.html */
 .events-section {
-    max-width: 1000px; /* Ограничиваем ширину контейнера */
+    max-width: 1000px;
     margin: 0 auto;
 }
 
@@ -14,7 +13,7 @@
     font-size: 24px;
     margin-bottom: 15px;
     color: #333;
-    text-align: center; /* Центрируем заголовок */
+    text-align: center; 
 }
 
 .events-section p {
@@ -24,24 +23,24 @@
 }
 
 #events-intro p {
-    text-align: center; /* Центрируем текст в параграфе внутри #events-intro */
+    text-align: center; 
 }
 
 #follow-us {
-    padding: 20px 0; /* Добавляем больше пространства сверху и снизу */
+    padding: 20px 0; 
 }
 
 #follow-us p {
-    text-align: center; /* Центрируем текст */
-    font-size: 20px; /* Увеличиваем размер шрифта для лучшей читаемости */
-    line-height: 1.8; /* Увеличиваем межстрочный интервал */
-    color: #333; /* Темный цвет для контраста */
-    font-family: 'Arial', sans-serif; /* Более читаемый шрифт */
-    margin-bottom: 15px; /* Увеличиваем отступ снизу */
+    text-align: center; 
+    font-size: 20px;
+    line-height: 1.8; 
+    color: #333; 
+    font-family: 'Arial', sans-serif; 
+    margin-bottom: 15px; 
 }
 
 #follow-us p strong {
-    color: #333; /* Убираем золотой цвет, используем черный */
+    color: #333; 
     font-weight: bold;
 }
 
@@ -68,16 +67,16 @@
 }
 
 .event-card {
-    background: #fffdf5; /* Светлый фон, как на фото */
-    border-radius: 15px; /* Закругленные углы */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Тень */
+    background: #fffdf5; 
+    border-radius: 15px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
     overflow: hidden;
     animation: fadeInUp 0.5s ease-out;
-    display: flex; /* Используем flex для расположения фото и контента */
-    align-items: stretch; /* Растягиваем элементы по высоте */
-    width: 1000px; /* Фиксированная ширина карточки */
-    height: 350px; /* Фиксированная высота карточки */
-    margin: 0 auto; /* Центрируем карточку */
+    display: flex; 
+    align-items: stretch; 
+    width: 1000px; 
+    height: 350px;
+    margin: 0 auto; 
 }
 
 .event-card.upcoming {
@@ -86,50 +85,49 @@
 
 .event-card.past {
     border-left: 5px solid #ccc;
-    background-color: #f5f5f5; /* Серый фон для прошедших */
+    background-color: #f5f5f5; 
 }
 
 .event-image {
-    width: 400px; /* Увеличиваем ширину фото */
-    height: 100%; /* Фото занимает всю высоту карточки */
-    object-fit: contain; /* Фото полностью помещается без обрезки */
+    width: 400px; 
+    height: 100%; 
+    object-fit: contain; 
     display: block;
-    margin: 10px; /* Отступы для аккуратного вида */
+    margin: 10px; 
 }
 
 .event-content {
-    padding: 10px; /* Уменьшаем внутренние отступы */
-    flex: 1; /* Занимает оставшееся пространство */
+    padding: 10px; 
+    flex: 1;
     display: flex;
-    flex-direction: column; /* Контент и дата в столбце */
-    justify-content: space-between; /* Распределяем пространство */
-    overflow: hidden; /* Обрезаем текст, если он выходит за пределы */
+    flex-direction: column; 
+    justify-content: space-between; 
+    overflow: hidden; 
 }
 
 .event-details {
-    flex: 1; /* Занимает доступное пространство */
-    overflow: hidden; /* Обрезаем текст при переполнении */
+    flex: 1; 
+    overflow: hidden; 
 }
 
 .event-details h4 {
-    font-size: 24px; /* Увеличиваем размер заголовка */
+    font-size: 24px; 
     margin-bottom: 10px;
     color: #333;
     font-weight: bold;
     overflow: hidden;
-    text-overflow: ellipsis; /* Обрезаем с многоточием */
-    white-space: nowrap; /* Предотвращаем перенос строки */
+    text-overflow: ellipsis; 
+    white-space: nowrap; 
 }
 
 .event-details p {
     font-size: 16px;
     margin: 5px 0;
-    line-height: 1.6; /* Улучшенная читаемость */
+    line-height: 1.6; 
     color: #333;
     overflow: hidden;
-    text-overflow: ellipsis; /* Обрезаем с многоточием */
+    text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 3; /* Ограничиваем до 3 строк */
     -webkit-box-orient: vertical;
 }
 
@@ -142,7 +140,7 @@
     font-size: 14px;
     color: #888;
     margin-top: 5px;
-    font-style: italic; /* Курсив для заметок, как на фото */
+    font-style: italic; 
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -152,17 +150,17 @@
     font-size: 16px;
     color: #666;
     padding-top: 10px;
-    border-top: 2px solid #FFD700; /* Линия сверху */
+    border-top: 2px solid #FFD700; 
     line-height: 1.5;
-    text-align: center; /* Центрируем дату */
-    margin-top: 15px; /* Отступ сверху */
-    flex-shrink: 0; /* Предотвращаем сжатие даты */
+    text-align: center; 
+    margin-top: 15px; 
+    flex-shrink: 0; 
 }
 
 .event-action {
     display: block;
     margin-top: 15px;
-    padding: 12px 25px; /* Увеличиваем внутренние отступы для большей кнопки */
+    padding: 12px 25px; 
     border: none;
     border-radius: 5px;
     background: linear-gradient(to right, #edc479 0%, transparent 50%), linear-gradient(to left, #edc479 0%, transparent 50%), #b57b10; ; /* Плавный градиент */
@@ -172,14 +170,13 @@
     cursor: pointer;
     transition: background 0.3s ease;
     text-align: center;
-    flex-shrink: 0; /* Предотвращаем сжатие кнопки */
+    flex-shrink: 0; 
 }
 
 .event-action:hover {
-    background: linear-gradient(to right, #b57b10, #edc479); /* Обратный градиент при наведении */
+    background: linear-gradient(to right, #b57b10, #edc479); 
 }
 
-/* Анимация появления */
 @keyframes fadeInUp {
     from {
         opacity: 0;
