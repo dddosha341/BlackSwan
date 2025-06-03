@@ -14,6 +14,7 @@
     font-size: 24px;
     margin-bottom: 15px;
     color: #333;
+    text-align: center; /* Центрируем заголовок */
 }
 
 .events-section p {
@@ -24,6 +25,24 @@
 
 #events-intro p {
     text-align: center; /* Центрируем текст в параграфе внутри #events-intro */
+}
+
+#follow-us {
+    padding: 20px 0; /* Добавляем больше пространства сверху и снизу */
+}
+
+#follow-us p {
+    text-align: center; /* Центрируем текст */
+    font-size: 20px; /* Увеличиваем размер шрифта для лучшей читаемости */
+    line-height: 1.8; /* Увеличиваем межстрочный интервал */
+    color: #333; /* Темный цвет для контраста */
+    font-family: 'Arial', sans-serif; /* Более читаемый шрифт */
+    margin-bottom: 15px; /* Увеличиваем отступ снизу */
+}
+
+#follow-us p strong {
+    color: #333; /* Убираем золотой цвет, используем черный */
+    font-weight: bold;
 }
 
 .filter-section {
@@ -143,10 +162,10 @@
 .event-action {
     display: block;
     margin-top: 15px;
-    padding: 10px 20px;
+    padding: 12px 25px; /* Увеличиваем внутренние отступы для большей кнопки */
     border: none;
     border-radius: 5px;
-    background: linear-gradient(to right, #FFD700, #FFC107); /* Градиент желтого */
+    background: linear-gradient(to right, #edc479 0%, transparent 50%), linear-gradient(to left, #edc479 0%, transparent 50%), #b57b10; ; /* Плавный градиент */
     color: #333;
     font-size: 16px;
     font-weight: bold;
@@ -157,7 +176,7 @@
 }
 
 .event-action:hover {
-    background: linear-gradient(to right, #FFC107, #FFD700); /* Обратный градиент при наведении */
+    background: linear-gradient(to right, #b57b10, #edc479); /* Обратный градиент при наведении */
 }
 
 /* Анимация появления */

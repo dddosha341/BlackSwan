@@ -165,7 +165,7 @@ body {
     font-size: 18px;
     color: #000;
     font-weight: bold;
-    background-color: #FFD700; /* Золотой фон только для цены */
+   background: linear-gradient(to right, #edc479 0%, transparent 50%), linear-gradient(to left, #edc479 0%, transparent 50%), #b57b10; /* Золотой фон только для цены */
     padding: 5px 10px;
     border-radius: 5px;
     display: inline-block;
