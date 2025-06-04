@@ -104,69 +104,95 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            fetch('/api/admin/bookings', {
-                headers: {
-                    'Authorization': 'Bearer ' + token
-                }
-            })
-            .then(response => response.json())
-            .then(bookings => {
-                const bookingsList = document.getElementById('bookings-list');
-                bookingsList.innerHTML = '';
-                
-                bookings.forEach(booking => {
-                    const row = document.createElement('tr');
-                    row.className = `called-${booking.isCalled}`;
-                    
-                    row.innerHTML = `
-                        <td>${booking.name}</td>
-                        <td>${booking.date}</td>
-                        <td>${booking.time}</td>
-                        <td>${booking.people}</td>
-                        <td>${booking.requests || '-'}</td>                        
-                        <td>${booking.phone}</td>
-                        <td>${booking.isCalled ? 'Перезвонили' : 'Ожидает звонка'}</td>
-                        <td>
-                            <button class="call-btn" onclick="markAsCalled('${booking.name}', '${booking.date}', '${booking.time}')">
-                                ${booking.isCalled ? '✓ Перезвонили' : 'Перезвонить'}
-                            </button>
-                        </td>
-                    `;
-                    
-                    bookingsList.appendChild(row);
-                });
-            });
-        });
+        fetch('/api/admin/bookings', {
+            method: 'GET', 
+            credentials: 'include', 
+            headers: {
+                'Accept': 'application/json' 
+            }
+        })
+        .then(response => {
+            if (response.status === 401 || response.status === 403) {
+                window.location.href = '/admin';
+                throw new Error('Требуется авторизация');
+            }
+            if (!response.ok) {
+                throw new Error('Ошибка при загрузке бронирований');
+            }
+            return response.json();
+        })
+        .then(bookings => {
+            const bookingsList = document.getElementById('bookings-list');
+            bookingsList.innerHTML = '';
         
-        function markAsCalled(name, date, time) {
-            fetch('/api/admin/bookings/mark-called', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + token
-                },
-                body: JSON.stringify({ name, date, time })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    const rows = document.querySelectorAll('#bookings-list tr');
-                    rows.forEach(row => {
-                        if (row.cells[0].textContent === name && 
-                            row.cells[1].textContent === date && 
-                            row.cells[2].textContent === time) {
-
-                            row.className = `called-${data.isCalled}`;
-
-                            row.cells[5].textContent = data.isCalled ? 'Перезвонили' : 'Ожидает звонка';
-
-                            const button = row.cells[6].querySelector('button');
-                            button.textContent = data.isCalled ? '✓ Перезвонили' : 'Перезвонить';
-                        }
-                    });
-                }
+            bookings.forEach(booking => {
+                const row = document.createElement('tr');
+                row.className = `called-${booking.isCalled}`;
+            
+                row.innerHTML = `
+                    <td>${booking.name}</td>
+                    <td>${booking.date}</td>
+                    <td>${booking.time}</td>
+                    <td>${booking.people}</td>
+                    <td>${booking.requests || '-'}</td>                        
+                    <td>${booking.phone}</td>
+                    <td>${booking.isCalled ? 'Перезвонили' : 'Ожидает звонка'}</td>
+                    <td>
+                        <button class="call-btn" onclick="markAsCalled('${booking.name}', '${booking.date}', '${booking.time}')">
+                            ${booking.isCalled ? '✓ Перезвонили' : 'Перезвонить'}
+                        </button>
+                    </td>
+                `;
+            
+                bookingsList.appendChild(row);
             });
-        }
+        })
+        .catch(error => {
+            console.error('Ошибка загрузки бронирований:', error);
+            alert('Не удалось загрузить бронирования: ' + error.message);
+        });
+    });
+
+    function markAsCalled(name, date, time) {
+        fetch('/api/admin/bookings/mark-called', {
+            method: 'POST',
+            credentials: 'include', 
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({ name, date, time })
+        })
+        .then(response => {
+            if (response.status === 401 || response.status === 403) {
+                window.location.href = '/admin'; 
+                throw new Error('Требуется авторизация');
+            }
+            if (!response.ok) {
+                throw new Error('Ошибка при обновлении статуса');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.success) {
+                const rows = document.querySelectorAll('#bookings-list tr');
+                rows.forEach(row => {
+                    if (row.cells[0].textContent === name && 
+                        row.cells[1].textContent === date && 
+                        row.cells[2].textContent === time) {
+                        row.className = `called-${data.isCalled}`;
+                        row.cells[6].textContent = data.isCalled ? 'Перезвонили' : 'Ожидает звонка'; 
+                        const button = row.cells[7].querySelector('button'); 
+                        button.textContent = data.isCalled ? '✓ Перезвонили' : 'Перезвонить';
+                    }
+                });
+            }
+        })
+        .catch(error => {
+            console.error('Ошибка при обновлении статуса:', error);
+            alert('Не удалось обновить статус: ' + error.message);
+        });
+    }
     </script>
 </body>
 </html>
