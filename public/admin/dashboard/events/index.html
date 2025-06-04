@@ -275,6 +275,15 @@
     </div>
 
     <script>
+        function formatDateTimeForInput(serverDateTime) {
+            return serverDateTime.replace(' ', 'T');
+        }
+
+        function formatDateTimeForServer(inputDateTime) {
+            return inputDateTime.replace('T', ' ');
+        }
+
+
         const token = localStorage.getItem('token');
         let currentEventId = null;
         let availableImages = [];
@@ -389,10 +398,13 @@
                 const res = await fetch('/api/admin/images', {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
+                
+                if (!res.ok) throw new Error('Ошибка загрузки изображений');
+                
                 availableImages = await res.json();
                 updateImageSelect();
             } catch (err) {
-                console.error('Ошибка загрузки изображений:', err);
+                console.error('Ошибка:', err);
                 availableImages = [];
             }
         }
@@ -414,35 +426,35 @@
             formData.append('image', file);
             
             try {
-                const response = await fetch('/api/admin/upload-image', {
+                const res = await fetch('/api/admin/upload-image', {
                     method: 'POST',
                     headers: {
-                        'Authorization': 'Bearer ' + token
+                        'Authorization': `Bearer ${token}`
                     },
                     body: formData
                 });
                 
-                if (!response.ok) throw new Error('Ошибка загрузки');
+                if (!res.ok) throw new Error('Ошибка загрузки');
                 
-                const result = await response.json();
+                const result = await res.json();
                 return result.path;
-            } catch (error) {
-                console.error('Ошибка загрузки:', error);
-                throw error;
+            } catch (err) {
+                console.error('Ошибка:', err);
+                throw err;
             }
         }
 
         function validateImageFile(input) {
             const file = input.files[0];
             if (!file) return false;
-
+            
             const allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif|\.webm)$/i;
             if (!allowedExtensions.test(file.name)) {
                 alert('Допустимы только JPG, PNG, GIF, WEBM!');
                 input.value = '';
                 return false;
             }
-
+            
             if (file.size > 5 * 1024 * 1024) {
                 alert('Файл слишком большой! Максимум 5MB');
                 input.value = '';
@@ -462,73 +474,98 @@
         }
 
         async function openEditModal(eventId) {
-        try {
-            const res = await fetch(`/api/admin/events/${eventId}`, {
-                headers: { 'Authorization': `Bearer ${token}` }
-            });
-            const event = await res.json();
-            
-            currentEventId = event.id;
-            document.getElementById('eventId').value = event.id;
-            document.getElementById('title').value = event.title;
-            document.getElementById('date').value = event.date.replace(' ', 'T');
-            document.getElementById('type').value = event.type;
-            document.getElementById('performer').value = event.performer;
-            document.getElementById('description').value = event.description;
-            document.getElementById('price').value = event.price;
-            document.getElementById('note').value = event.note || '';
-            document.getElementById('status').value = event.status;
+    try {
+        const res = await fetch(`/api/admin/events/${eventId}`, {
+            headers: { 'Authorization': `Bearer ${token}` }
+        });
+        
+        if (!res.ok) throw new Error('Ошибка загрузки данных');
+        
+        const event = await res.json();
+        
+        currentEventId = event.id;
+        document.getElementById('modalTitle').textContent = 'Редактировать мероприятие';
+        document.getElementById('eventId').value = event.id;
+        document.getElementById('title').value = event.title;
+        document.getElementById('date').value = formatDateTimeForInput(event.date);
+        document.getElementById('type').value = event.type;
+        document.getElementById('performer').value = event.performer;
+        document.getElementById('description').value = event.description;
+        document.getElementById('price').value = event.price;
+        document.getElementById('note').value = event.note || '';
+        document.getElementById('status').value = event.status;
+        document.getElementById('imagePath').value = event.imagePath;
+        document.getElementById('imageUpload').value = '';
+        
+        document.getElementById('eventModal').style.display = 'block';
+    } catch (err) {
+        console.error('Ошибка:', err);
+        alert('Не удалось загрузить данные');
+    }
+}
+    async function submitEventForm() {
+    const form = document.getElementById('eventForm');
+    const imageInput = document.getElementById('imageUpload');
+    let imagePath = form.imagePath.value;
 
-            const imageSelect = document.getElementById('imagePath');
-            imageSelect.value = event.imagePath;
-            
-            document.getElementById('eventModal').style.display = 'block';
+    if (!form.title.value || !form.date.value || !form.type.value || 
+        !form.performer.value || !form.description.value || 
+        !form.price.value || !form.status.value) {
+        alert('Заполните все обязательные поля!');
+        return;
+    }
+
+    if (imageInput.files.length > 0) {
+        if (!validateImageFile(imageInput)) return;
+        try {
+            imagePath = await uploadImage(imageInput.files[0]);
         } catch (err) {
-            console.error('Ошибка загрузки:', err);
-            alert('Не удалось загрузить данные');
+            alert('Ошибка загрузки изображения: ' + err.message);
+            return;
         }
     }
-        async function submitEventForm() {
-        const form = document.getElementById('eventForm');
-        const formData = {
-            id: currentEventId,
-            title: form.title.value,
-            date: form.date.value,
-            type: form.type.value,
-            performer: form.performer.value,
-            description: form.description.value,
-            price: Number(form.price.value),
-            note: form.note.value,
-            status: form.status.value,
-            imagePath: form.imagePath.value
-        };
 
-        try {
-            const url = currentEventId 
-                ? `/api/admin/events/${currentEventId}`
-                : '/api/admin/events';
-            
-            const method = currentEventId ? 'PUT' : 'POST';
-            
-            const res = await fetch(url, {
-                method,
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                },
-                body: JSON.stringify(formData)
-            });
+    const formData = {
+        id: currentEventId,
+        title: form.title.value,
+        date: formatDateTimeForServer(form.date.value),
+        type: form.type.value,
+        performer: form.performer.value,
+        description: form.description.value,
+        price: Number(form.price.value),
+        note: form.note.value || null,
+        status: form.status.value,
+        imagePath: imagePath
+    };
 
-            if (!res.ok) throw new Error(await res.text());
-            
-            closeModal();
-            fetchEvents();
-            
-        } catch (err) {
-            console.error('Ошибка:', err);
-            alert('Ошибка сохранения: ' + err.message);
+    try {
+        const url = currentEventId 
+            ? `/api/admin/events/${currentEventId}`
+            : '/api/admin/events';
+        
+        const res = await fetch(url, {
+            method: currentEventId ? 'PUT' : 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify(formData)
+        });
+
+        if (!res.ok) {
+            const error = await res.json().catch(() => null);
+            throw new Error(error?.message || 'Ошибка сервера');
         }
+
+        closeModal();
+        await fetchEvents();
+        await fetchAvailableImages();
+        
+    } catch (err) {
+        console.error('Ошибка:', err);
+        alert('Ошибка сохранения: ' + err.message);
     }
+}
         function formatDisplayDate(dateString) {
             return new Date(dateString).toLocaleString('ru-RU');
         }
@@ -555,11 +592,13 @@
             document.getElementById('eventModal').style.display = 'none';
             document.getElementById('eventForm').reset();
             currentEventId = null;
+            document.body.classList.remove('modal-open'); 
         }
 
         window.onclick = function(event) {
             if (event.target === document.getElementById('eventModal')) {
                 closeModal();
+                document.body.classList.remove('modal-open'); 
             }
         }
     </script>
